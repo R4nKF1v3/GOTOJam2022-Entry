@@ -1,0 +1,8 @@
+.import/
+_build
+
+addons/godot-git-plugin/*
+
+.vscode/*
+.mono/*
+data_*/*
