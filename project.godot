@@ -18,10 +18,28 @@ _global_script_classes=[ {
 "class": "GitAPI",
 "language": "NativeScript",
 "path": "res://addons/godot-git-plugin/git_api.gdns"
+}, {
+"base": "Node2D",
+"class": "Player",
+"language": "GDScript",
+"path": "res://game/player/Player.gd"
+}, {
+"base": "Node2D",
+"class": "Scenario",
+"language": "GDScript",
+"path": "res://game/scenarios/Scenario.gd"
+}, {
+"base": "Node",
+"class": "Screen",
+"language": "GDScript",
+"path": "res://screens/DefaultScreen.gd"
 } ]
 _global_script_class_icons={
 "AudioHandler": "",
-"GitAPI": ""
+"GitAPI": "",
+"Player": "",
+"Scenario": "",
+"Screen": ""
 }
 
 [application]
@@ -33,6 +51,7 @@ config/icon="res://icon.png"
 [autoload]
 
 GameState="*res://globals/GameState.tscn"
+AudioManager="*res://globals/AudioManager.tscn"
 
 [display]
 

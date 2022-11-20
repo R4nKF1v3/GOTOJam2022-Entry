@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://game/scenarios/OldScenario.gd" type="Script" id=1]
+[ext_resource path="res://assets/textures/maps/MapsOutline.png" type="Texture" id=2]
+
+[sub_resource type="NavigationPolygon" id=1]
+vertices = PoolVector2Array( 784, 288, 880, 288, 880, 328, 752, 520, 1504, 328, 1504, 816, 1376, 816, 1208, 520, 1376, 840, 1208, 840, 752, 856, 600, 856, 224, 680, 192, 160, 600, 904, 224, 904, 192, 680, 768, 160, 784, 176 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 4, 5, 6, 7 ), PoolIntArray( 6, 8, 9, 7 ), PoolIntArray( 2, 4, 7, 3 ), PoolIntArray( 3, 10, 11, 12, 13 ), PoolIntArray( 11, 14, 15, 12 ), PoolIntArray( 12, 16, 13 ), PoolIntArray( 0, 3, 13, 17, 18 ) ]
+outlines = [ PoolVector2Array( 192, 160, 192, 680, 224, 680, 224, 904, 600, 904, 600, 856, 752, 856, 752, 520, 1208, 520, 1208, 840, 1376, 840, 1376, 816, 1504, 816, 1504, 328, 880, 328, 880, 288, 784, 288, 784, 176, 768, 160 ) ]
+
+[sub_resource type="NavigationPolygon" id=2]
+vertices = PoolVector2Array( 1421, -171, 1421, 69, 1309, 69, 1309, 29, 1069, -171, 1069, 29 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 4, 0, 3, 5 ) ]
+outlines = [ PoolVector2Array( 1421, -171, 1069, -171, 1069, 29, 1309, 29, 1309, 69, 1421, 69 ) ]
+
+[node name="OldScenario" type="Node2D"]
+script = ExtResource( 1 )
+camera_path = NodePath("Camera2D")
+nav_base_path = NodePath("NavBase")
+
+[node name="Map" type="Sprite" parent="."]
+position = Vector2( 960, 540 )
+texture = ExtResource( 2 )
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="NavBase" type="NavigationPolygonInstance" parent="."]
+navpoly = SubResource( 1 )
+
+[node name="NavCloset" type="NavigationPolygonInstance" parent="."]
+position = Vector2( 3, 251 )
+navpoly = SubResource( 2 )
+enabled = false
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 960, 540 )
