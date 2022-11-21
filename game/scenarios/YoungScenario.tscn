@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://game/scenarios/YoungScenario.gd" type="Script" id=1]
 [ext_resource path="res://assets/textures/maps/Joven/baseMap.png" type="Texture" id=2]
@@ -9,9 +9,11 @@
 [ext_resource path="res://game/ClosetHide.tscn" type="PackedScene" id=7]
 [ext_resource path="res://game/ProximityAudio.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/textures/gameplay/objects/Model/modelNumber.png" type="Texture" id=9]
+[ext_resource path="res://assets/textures/maps/InteractuablesComun/doorFrame.png" type="Texture" id=10]
 [ext_resource path="res://assets/textures/gameplay/objects/BaseBallBat/bat.png" type="Texture" id=11]
 [ext_resource path="res://assets/textures/gameplay/objects/BaseBallBat/batZoom.png" type="Texture" id=12]
 [ext_resource path="res://assets/sounds/music/Joven.mp3" type="AudioStream" id=13]
+[ext_resource path="res://assets/textures/maps/InteractuablesComun/doorClosed.png" type="Texture" id=14]
 
 [sub_resource type="RectangleShape2D" id=20]
 extents = Vector2( 62.5, 9.5 )
@@ -73,6 +75,12 @@ extents = Vector2( 32, 32 )
 [sub_resource type="RectangleShape2D" id=25]
 extents = Vector2( 32, 32 )
 
+[sub_resource type="RectangleShape2D" id=27]
+extents = Vector2( 32, 20 )
+
+[sub_resource type="RectangleShape2D" id=28]
+extents = Vector2( 32, 20 )
+
 [sub_resource type="ParticlesMaterial" id=26]
 emission_shape = 2
 emission_box_extents = Vector3( 40, 170, 1 )
@@ -121,6 +129,7 @@ __meta__ = {
 }
 
 [node name="Walls" type="Node2D" parent="."]
+visible = false
 z_index = 1
 z_as_relative = false
 
@@ -297,31 +306,24 @@ show_on_key = "bate"
 
 [node name="ClosetDoorLocked" parent="Interactuables" instance=ExtResource( 4 )]
 material = null
-position = Vector2( 1385, 398 )
-interact_area_shape = SubResource( 25 )
+position = Vector2( 1367, 389 )
+texture = ExtResource( 14 )
+interact_area_shape = SubResource( 27 )
 tooltip = "closet_tooltip"
 dialogue = PoolStringArray( "closet_locked" )
 hide_on_key = "closet_key"
 
 [node name="ClosetDoorUnlocked" parent="Interactuables" instance=ExtResource( 4 )]
 material = null
-position = Vector2( 1385, 398 )
+position = Vector2( 1367, 389 )
 starts_hidden = true
-interact_area_shape = SubResource( 25 )
+texture = ExtResource( 14 )
+interact_area_shape = SubResource( 28 )
 tooltip = "closet_tooltip"
 dialogue = PoolStringArray( "closet_unlocked" )
 progress_key_unlock = "unlocked_closet"
 hide_on_key = "unlocked_closet"
 show_on_key = "closet_key"
-
-[node name="ClosetDoorOpen" parent="Interactuables" instance=ExtResource( 4 )]
-material = null
-position = Vector2( 1385, 398 )
-starts_hidden = true
-interact_area_shape = null
-tooltip = "closet_tooltip"
-dialogue = PoolStringArray( "closet_unlocked" )
-show_on_key = "unlocked_closet"
 
 [node name="HangerUnused" parent="Interactuables" instance=ExtResource( 4 )]
 material = null
@@ -386,6 +388,10 @@ z_as_relative = false
 [node name="ClosetHide" parent="Over" instance=ExtResource( 7 )]
 visible = false
 margin_top = 113.0
+
+[node name="ClosetOver" type="Sprite" parent="Over"]
+position = Vector2( 1372, 388 )
+texture = ExtResource( 10 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 960, 540 )

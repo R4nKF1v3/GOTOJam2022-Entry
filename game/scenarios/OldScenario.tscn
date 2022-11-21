@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://game/scenarios/OldScenario.gd" type="Script" id=1]
 [ext_resource path="res://assets/textures/maps/Viejo/topMap.png" type="Texture" id=2]
@@ -13,6 +13,8 @@
 [ext_resource path="res://assets/textures/gameplay/objects/Bear/bearFront.png" type="Texture" id=11]
 [ext_resource path="res://assets/textures/gameplay/objects/Card/cardFront.png" type="Texture" id=12]
 [ext_resource path="res://assets/textures/gameplay/objects/Card/cardBack.png" type="Texture" id=13]
+[ext_resource path="res://assets/textures/maps/InteractuablesComun/doorFrame.png" type="Texture" id=14]
+[ext_resource path="res://assets/textures/maps/InteractuablesComun/doorClosed.png" type="Texture" id=15]
 [ext_resource path="res://game/ClosetHide.tscn" type="PackedScene" id=16]
 
 [sub_resource type="RectangleShape2D" id=6]
@@ -60,6 +62,9 @@ polygon = PoolVector2Array( 385, 10, -190, 10, -190, -9, 385, -9 )
 [sub_resource type="RectangleShape2D" id=25]
 extents = Vector2( 32, 32 )
 
+[sub_resource type="RectangleShape2D" id=26]
+extents = Vector2( 32, 20 )
+
 [sub_resource type="NavigationPolygon" id=4]
 vertices = PoolVector2Array( 392, 256, 848, 256, 848, 368, 392, 864, 896, 368, 896, 424, 864, 584, 712, 816, 1384, 424, 1384, 872, 1304, 872, 1304, 832, 1136, 832, 1136, 584, 864, 816, 712, 864 )
 polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 3, 2, 4, 5, 6, 7 ), PoolIntArray( 8, 9, 10, 11 ), PoolIntArray( 11, 12, 13, 8 ), PoolIntArray( 5, 8, 13, 6 ), PoolIntArray( 6, 14, 7 ), PoolIntArray( 3, 7, 15 ) ]
@@ -88,6 +93,7 @@ z_as_relative = false
 texture = ExtResource( 2 )
 
 [node name="Walls" type="Node2D" parent="."]
+visible = false
 z_index = 1
 z_as_relative = false
 
@@ -247,8 +253,9 @@ show_on_key = "closet_key"
 
 [node name="ClosetDoorJammed" parent="Interactuables" instance=ExtResource( 3 )]
 material = null
-position = Vector2( 1385, 398 )
-interact_area_shape = SubResource( 25 )
+position = Vector2( 1368, 389 )
+texture = ExtResource( 15 )
+interact_area_shape = SubResource( 26 )
 tooltip = "closet_tooltip"
 dialogue = PoolStringArray( "closet_jammed" )
 show_on_key = "bate"
@@ -313,6 +320,10 @@ z_as_relative = false
 [node name="ClosetHide" parent="Over" instance=ExtResource( 16 )]
 visible = false
 margin_top = 113.0
+
+[node name="ClosetOver" type="Sprite" parent="Over"]
+position = Vector2( 1372, 388 )
+texture = ExtResource( 14 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 960, 540 )
