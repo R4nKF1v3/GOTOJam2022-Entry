@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/MapsOutline.png-cd532b7f3fd8481cfccf143f5af23046.stex"
+path="res://.import/play_normal.png-59edc7e28efe6aaa2a3c2be7d81422d0.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/maps/MapsOutline.png"
-dest_files=[ "res://.import/MapsOutline.png-cd532b7f3fd8481cfccf143f5af23046.stex" ]
+source_file="res://assets/textures/ui/play_normal.png"
+dest_files=[ "res://.import/play_normal.png-59edc7e28efe6aaa2a3c2be7d81422d0.stex" ]
 
 [params]
 

@@ -105,12 +105,14 @@ color = Color( 0.745098, 0.745098, 0.745098, 1 )
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Overlay/ScreenEffects"]
 environment = SubResource( 4 )
 
-[node name="HUD" type="Control" parent="Overlay"]
+[node name="Interface" type="CanvasLayer" parent="."]
+
+[node name="HUD" type="Control" parent="Interface"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 
-[node name="ChangeStateButton" type="Button" parent="Overlay/HUD"]
+[node name="ChangeStateButton" type="Button" parent="Interface/HUD"]
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = 50.0
@@ -119,7 +121,7 @@ margin_bottom = 91.0
 custom_fonts/font = ExtResource( 2 )
 text = "Pills"
 
-[node name="Items" type="HBoxContainer" parent="Overlay/HUD"]
+[node name="Items" type="HBoxContainer" parent="Interface/HUD"]
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -237.0
@@ -127,15 +129,30 @@ margin_top = 4.0
 margin_right = -50.0
 margin_bottom = 87.0
 grow_horizontal = 0
+custom_constants/separation = 9
 alignment = 2
 
-[node name="Item" parent="Overlay/HUD/Items" instance=ExtResource( 13 )]
-margin_left = 87.0
-margin_right = 187.0
+[node name="Item" parent="Interface/HUD/Items" instance=ExtResource( 13 )]
 
-[node name="InspectManager" parent="Overlay/HUD" instance=ExtResource( 12 )]
+[node name="Item2" parent="Interface/HUD/Items" instance=ExtResource( 13 )]
+margin_left = 109.0
+margin_right = 209.0
 
-[node name="Dialogue" type="Label" parent="Overlay/HUD" groups=["dialogue"]]
+[node name="Item3" parent="Interface/HUD/Items" instance=ExtResource( 13 )]
+margin_left = 218.0
+margin_right = 318.0
+
+[node name="Item4" parent="Interface/HUD/Items" instance=ExtResource( 13 )]
+margin_left = 327.0
+margin_right = 427.0
+
+[node name="Item5" parent="Interface/HUD/Items" instance=ExtResource( 13 )]
+margin_left = 436.0
+margin_right = 536.0
+
+[node name="InspectManager" parent="Interface/HUD" instance=ExtResource( 12 )]
+
+[node name="Dialogue" type="Label" parent="Interface/HUD" groups=["dialogue"]]
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -152,23 +169,23 @@ valign = 1
 autowrap = true
 script = ExtResource( 9 )
 
-[node name="FadeTween" type="Tween" parent="Overlay/HUD/Dialogue"]
+[node name="FadeTween" type="Tween" parent="Interface/HUD/Dialogue"]
 
-[node name="TextTimer" type="Timer" parent="Overlay/HUD/Dialogue"]
+[node name="TextTimer" type="Timer" parent="Interface/HUD/Dialogue"]
 
-[node name="DelayTimer" type="Timer" parent="Overlay/HUD/Dialogue"]
+[node name="DelayTimer" type="Timer" parent="Interface/HUD/Dialogue"]
 wait_time = 3.0
 one_shot = true
 
-[node name="TextSFX" parent="Overlay/HUD/Dialogue" instance=ExtResource( 10 )]
+[node name="TextSFX" parent="Interface/HUD/Dialogue" instance=ExtResource( 10 )]
 _audio_references = [ ExtResource( 11 ) ]
 _db_volumes = [ 0.0 ]
 _pitch_scales = [ [ 0.9, 1.1 ] ]
 
-[node name="TooltipPos" type="Position2D" parent="Overlay" groups=["tooltip"]]
+[node name="TooltipPos" type="Position2D" parent="Interface" groups=["tooltip"]]
 script = ExtResource( 7 )
 
-[node name="Tooltip" type="Label" parent="Overlay/TooltipPos"]
+[node name="Tooltip" type="Label" parent="Interface/TooltipPos"]
 margin_left = -24.0
 margin_top = 45.0
 margin_right = 26.0
@@ -178,17 +195,17 @@ grow_vertical = 2
 custom_fonts/font = ExtResource( 8 )
 text = "lorem"
 
-[node name="Panel" type="Panel" parent="Overlay/TooltipPos/Tooltip"]
+[node name="Panel" type="Panel" parent="Interface/TooltipPos/Tooltip"]
 show_behind_parent = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 custom_styles/panel = SubResource( 1 )
 
-[node name="FadeTween" type="Tween" parent="Overlay/TooltipPos"]
+[node name="FadeTween" type="Tween" parent="Interface/TooltipPos"]
 
 [connection signal="changed_target" from="Player" to="." method="_on_Player_changed_target"]
 [connection signal="stopped_moving" from="Player" to="." method="_on_Player_stopped_moving"]
-[connection signal="button_up" from="Overlay/HUD/ChangeStateButton" to="." method="_on_ChangeStateButton_button_up"]
-[connection signal="timeout" from="Overlay/HUD/Dialogue/TextTimer" to="Overlay/HUD/Dialogue" method="_on_TextTimer_timeout"]
-[connection signal="timeout" from="Overlay/HUD/Dialogue/DelayTimer" to="Overlay/HUD/Dialogue" method="_on_DelayTimer_timeout"]
+[connection signal="button_up" from="Interface/HUD/ChangeStateButton" to="." method="_on_ChangeStateButton_button_up"]
+[connection signal="timeout" from="Interface/HUD/Dialogue/TextTimer" to="Interface/HUD/Dialogue" method="_on_TextTimer_timeout"]
+[connection signal="timeout" from="Interface/HUD/Dialogue/DelayTimer" to="Interface/HUD/Dialogue" method="_on_DelayTimer_timeout"]
