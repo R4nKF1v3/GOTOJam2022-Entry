@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=46 format=2]
 
 [ext_resource path="res://game/scenarios/YoungScenario.gd" type="Script" id=1]
 [ext_resource path="res://assets/textures/maps/Joven/baseMap.png" type="Texture" id=2]
@@ -14,6 +14,11 @@
 [ext_resource path="res://assets/textures/gameplay/objects/BaseBallBat/batZoom.png" type="Texture" id=12]
 [ext_resource path="res://assets/sounds/music/Joven.mp3" type="AudioStream" id=13]
 [ext_resource path="res://assets/textures/maps/InteractuablesComun/doorClosed.png" type="Texture" id=14]
+[ext_resource path="res://assets/textures/maps/InteractuablesComun/modelPrincipal.png" type="Texture" id=15]
+[ext_resource path="res://assets/textures/maps/Joven/Interactuables/toolBox.png" type="Texture" id=16]
+[ext_resource path="res://assets/textures/maps/Joven/Interactuables/safeLock.png" type="Texture" id=17]
+[ext_resource path="res://assets/textures/maps/Joven/Interactuables/bat.png" type="Texture" id=18]
+[ext_resource path="res://assets/textures/maps/Joven/Interactuables/ropaColgada.png" type="Texture" id=19]
 
 [sub_resource type="RectangleShape2D" id=20]
 extents = Vector2( 62.5, 9.5 )
@@ -80,6 +85,9 @@ extents = Vector2( 32, 20 )
 
 [sub_resource type="RectangleShape2D" id=28]
 extents = Vector2( 32, 20 )
+
+[sub_resource type="RectangleShape2D" id=29]
+extents = Vector2( 140, 20 )
 
 [sub_resource type="ParticlesMaterial" id=26]
 emission_shape = 2
@@ -247,6 +255,7 @@ z_as_relative = false
 
 [node name="ModelYoung" parent="Interactuables" instance=ExtResource( 4 )]
 position = Vector2( 561, 210 )
+texture = ExtResource( 15 )
 interact_area_shape = SubResource( 5 )
 tooltip = "model_tooltip"
 dialogue = PoolStringArray( "model_young" )
@@ -254,6 +263,7 @@ inspect_textures = [ ExtResource( 6 ), ExtResource( 9 ) ]
 
 [node name="ToolboxClosed" parent="Interactuables" instance=ExtResource( 4 )]
 position = Vector2( 960, 280 )
+texture = ExtResource( 16 )
 interact_area_shape = SubResource( 5 )
 tooltip = "toolbox_tooltip"
 dialogue = PoolStringArray( "toolbox_closed" )
@@ -263,6 +273,7 @@ hide_on_key = "pliers"
 [node name="ToolboxOpened" parent="Interactuables" instance=ExtResource( 4 )]
 position = Vector2( 960, 280 )
 starts_hidden = true
+texture = ExtResource( 16 )
 interact_area_shape = SubResource( 5 )
 tooltip = "toolbox_tooltip"
 dialogue = PoolStringArray( "toolbox_opened" )
@@ -270,6 +281,7 @@ show_on_key = "pliers"
 
 [node name="Strongbox" parent="Interactuables" instance=ExtResource( 4 )]
 position = Vector2( 858, 875 )
+texture = ExtResource( 17 )
 interact_area_shape = SubResource( 5 )
 tooltip = "strongbox_tooltip"
 dialogue = PoolStringArray( "strongbox" )
@@ -278,6 +290,7 @@ key_oneshot = false
 
 [node name="BateWall" parent="Interactuables" instance=ExtResource( 4 )]
 position = Vector2( 1187, 398 )
+texture = ExtResource( 18 )
 interact_area_shape = SubResource( 25 )
 tooltip = "bate_tooltip"
 dialogue = PoolStringArray( "bate_wall" )
@@ -287,6 +300,7 @@ hide_on_key = "screwdriver"
 [node name="BateUnused" parent="Interactuables" instance=ExtResource( 4 )]
 position = Vector2( 1187, 398 )
 starts_hidden = true
+texture = ExtResource( 18 )
 interact_area_shape = SubResource( 25 )
 tooltip = "bate_tooltip"
 dialogue = PoolStringArray( "bate_unused1", "bate_unused2" )
@@ -298,6 +312,7 @@ show_on_key = "screwdriver"
 [node name="BateUsed" parent="Interactuables" instance=ExtResource( 4 )]
 position = Vector2( 1187, 398 )
 starts_hidden = true
+texture = ExtResource( 18 )
 interact_area_shape = SubResource( 25 )
 tooltip = "bate_tooltip"
 dialogue = PoolStringArray( "bate_used" )
@@ -327,8 +342,10 @@ show_on_key = "closet_key"
 
 [node name="HangerUnused" parent="Interactuables" instance=ExtResource( 4 )]
 material = null
-position = Vector2( 1157, 246 )
+position = Vector2( 1222, 244 )
 starts_hidden = true
+texture = ExtResource( 19 )
+interact_area_shape = SubResource( 29 )
 tooltip = "hanger_tooltip"
 dialogue = PoolStringArray( "hanger_unused" )
 progress_key_unlock = "hanger"
@@ -337,8 +354,10 @@ show_on_key = "unlocked_closet"
 
 [node name="HangerUsed" parent="Interactuables" instance=ExtResource( 4 )]
 material = null
-position = Vector2( 1157, 246 )
+position = Vector2( 1222, 244 )
 starts_hidden = true
+texture = ExtResource( 19 )
+interact_area_shape = SubResource( 29 )
 tooltip = "hanger_tooltip"
 dialogue = PoolStringArray( "hanger_used" )
 show_on_key = "hanger"
@@ -390,7 +409,7 @@ visible = false
 margin_top = 113.0
 
 [node name="ClosetOver" type="Sprite" parent="Over"]
-position = Vector2( 1372, 388 )
+position = Vector2( 1372, 393 )
 texture = ExtResource( 10 )
 
 [node name="Camera2D" type="Camera2D" parent="."]

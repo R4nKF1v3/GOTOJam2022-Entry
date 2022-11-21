@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://game/scenarios/OldScenario.gd" type="Script" id=1]
 [ext_resource path="res://assets/textures/maps/Viejo/topMap.png" type="Texture" id=2]
@@ -16,6 +16,12 @@
 [ext_resource path="res://assets/textures/maps/InteractuablesComun/doorFrame.png" type="Texture" id=14]
 [ext_resource path="res://assets/textures/maps/InteractuablesComun/doorClosed.png" type="Texture" id=15]
 [ext_resource path="res://game/ClosetHide.tscn" type="PackedScene" id=16]
+[ext_resource path="res://assets/textures/maps/InteractuablesComun/modelPrincipal.png" type="Texture" id=17]
+[ext_resource path="res://assets/textures/maps/Viejo/Interactuables/juguetes.png" type="Texture" id=18]
+[ext_resource path="res://assets/textures/maps/Viejo/Interactuables/keys.png" type="Texture" id=19]
+[ext_resource path="res://assets/textures/maps/Viejo/Interactuables/bearBox.png" type="Texture" id=20]
+[ext_resource path="res://assets/textures/maps/Viejo/Interactuables/cardTableLeft.png" type="Texture" id=21]
+[ext_resource path="res://assets/textures/maps/Viejo/Interactuables/cardTableRight.png" type="Texture" id=22]
 
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 13, 420 )
@@ -186,7 +192,8 @@ z_index = 1
 z_as_relative = false
 
 [node name="DeskPills" parent="Interactuables" instance=ExtResource( 3 )]
-position = Vector2( 856, 872 )
+position = Vector2( 859, 876 )
+texture = ExtResource( 21 )
 interact_area_shape = SubResource( 25 )
 tooltip = "desk_pills_tooltip"
 dialogue = PoolStringArray( "desk_pills" )
@@ -196,6 +203,7 @@ hide_on_key = "pills"
 
 [node name="ModelOld" parent="Interactuables" instance=ExtResource( 3 )]
 position = Vector2( 561, 210 )
+texture = ExtResource( 17 )
 interact_area_shape = SubResource( 25 )
 tooltip = "model_tooltip"
 dialogue = PoolStringArray( "model_old" )
@@ -203,6 +211,7 @@ inspect_textures = [ ExtResource( 5 ), ExtResource( 8 ) ]
 
 [node name="ToysShelves" parent="Interactuables" instance=ExtResource( 3 )]
 position = Vector2( 593, 925 )
+texture = ExtResource( 18 )
 interact_area_shape = SubResource( 25 )
 tooltip = "toys_tooltip"
 dialogue = PoolStringArray( "toys_shelves" )
@@ -211,6 +220,7 @@ hide_on_key = "pliers"
 [node name="ToysUnused" parent="Interactuables" instance=ExtResource( 3 )]
 position = Vector2( 593, 809 )
 starts_hidden = true
+texture = ExtResource( 18 )
 interact_area_shape = SubResource( 25 )
 tooltip = "toys_tooltip"
 dialogue = PoolStringArray( "toys_unused" )
@@ -221,6 +231,7 @@ show_on_key = "pliers"
 [node name="ToysUsed" parent="Interactuables" instance=ExtResource( 3 )]
 position = Vector2( 593, 809 )
 starts_hidden = true
+texture = ExtResource( 18 )
 interact_area_shape = SubResource( 25 )
 tooltip = "toys_tooltip"
 dialogue = PoolStringArray( "toys_used" )
@@ -228,6 +239,7 @@ show_on_key = "screwdriver"
 
 [node name="ReliquaryWall" parent="Interactuables" instance=ExtResource( 3 )]
 position = Vector2( 1187, 398 )
+texture = ExtResource( 19 )
 interact_area_shape = SubResource( 25 )
 tooltip = "reliquary_tooltip"
 dialogue = PoolStringArray( "reliquary_wall" )
@@ -236,6 +248,7 @@ hide_on_key = "bate"
 [node name="ReliquaryUnused" parent="Interactuables" instance=ExtResource( 3 )]
 position = Vector2( 1187, 398 )
 starts_hidden = true
+texture = ExtResource( 19 )
 interact_area_shape = SubResource( 25 )
 tooltip = "reliquary_tooltip"
 dialogue = PoolStringArray( "reliquary_unused" )
@@ -246,6 +259,7 @@ show_on_key = "bate"
 [node name="ReliquaryUsed" parent="Interactuables" instance=ExtResource( 3 )]
 position = Vector2( 1187, 398 )
 starts_hidden = true
+texture = ExtResource( 19 )
 interact_area_shape = SubResource( 25 )
 tooltip = "reliquary_tooltip"
 dialogue = PoolStringArray( "reliquary_used" )
@@ -263,6 +277,7 @@ show_on_key = "bate"
 [node name="BearBox" parent="Interactuables" instance=ExtResource( 3 )]
 position = Vector2( 1044, 309 )
 starts_hidden = true
+texture = ExtResource( 20 )
 interact_area_shape = SubResource( 25 )
 tooltip = "bearbox_tooltip"
 dialogue = PoolStringArray( "bearbox" )
@@ -270,15 +285,17 @@ inspect_textures = [ ExtResource( 10 ), ExtResource( 11 ) ]
 show_on_key = "unlocked_closet"
 
 [node name="NightstandLocked" parent="Interactuables" instance=ExtResource( 3 )]
-position = Vector2( 1310, 872 )
+position = Vector2( 1306, 874 )
+texture = ExtResource( 22 )
 interact_area_shape = SubResource( 25 )
 tooltip = "nightstand_tooltip"
 dialogue = PoolStringArray( "nightstand_locked" )
 show_on_key = "hanger"
 
 [node name="NightstandUnused" parent="Interactuables" instance=ExtResource( 3 )]
-position = Vector2( 1310, 872 )
+position = Vector2( 1306, 874 )
 starts_hidden = true
+texture = ExtResource( 22 )
 interact_area_shape = SubResource( 25 )
 tooltip = "nightstand_tooltip"
 dialogue = PoolStringArray( "nightstand_unused1", "nightstand_unused2" )
@@ -288,8 +305,9 @@ hide_on_key = "nightstand_opened"
 show_on_key = "hanger"
 
 [node name="NightstandUsed" parent="Interactuables" instance=ExtResource( 3 )]
-position = Vector2( 1310, 872 )
+position = Vector2( 1306, 874 )
 starts_hidden = true
+texture = ExtResource( 22 )
 interact_area_shape = SubResource( 25 )
 tooltip = "nightstand_tooltip"
 dialogue = PoolStringArray( "nightstand_used" )
@@ -322,7 +340,7 @@ visible = false
 margin_top = 113.0
 
 [node name="ClosetOver" type="Sprite" parent="Over"]
-position = Vector2( 1372, 388 )
+position = Vector2( 1372, 393 )
 texture = ExtResource( 14 )
 
 [node name="Camera2D" type="Camera2D" parent="."]

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/plataJoven1.png-0da841be9adee023013357fcfc598673.stex"
+path="res://.import/cardTableRight.png-53faf9c33c73985589816b3da2bae413.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/maps/Joven/Interactuables/plataJoven1.png"
-dest_files=[ "res://.import/plataJoven1.png-0da841be9adee023013357fcfc598673.stex" ]
+source_file="res://assets/textures/maps/Viejo/Interactuables/cardTableRight.png"
+dest_files=[ "res://.import/cardTableRight.png-53faf9c33c73985589816b3da2bae413.stex" ]
 
 [params]
 

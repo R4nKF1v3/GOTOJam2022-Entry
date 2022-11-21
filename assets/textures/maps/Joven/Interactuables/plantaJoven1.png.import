@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/plantaViejo2.png-174f59d3977b4dc4d25037fcfa5ae10b.stex"
+path="res://.import/plantaJoven1.png-1409b28e062dbb27e7b03a4a132cee21.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/maps/Joven/Interactuables/plantaViejo2.png"
-dest_files=[ "res://.import/plantaViejo2.png-174f59d3977b4dc4d25037fcfa5ae10b.stex" ]
+source_file="res://assets/textures/maps/Joven/Interactuables/plantaJoven1.png"
+dest_files=[ "res://.import/plantaJoven1.png-1409b28e062dbb27e7b03a4a132cee21.stex" ]
 
 [params]
 
