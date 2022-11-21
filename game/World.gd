@@ -50,7 +50,8 @@ func _on_ChangeStateButton_toggled(button_pressed: bool) -> void:
 	player.target = player.global_position
 	vignette_tween.interpolate_method(self, "_change_vignette", 0.4, 16.0, 4.9)
 	vignette_tween.interpolate_method(self, "_change_vignette", 16.0, 0.4, 0.1, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT, 4.9)
-	vignette_tween.interpolate_property(background, "color", background.color, young_background_color if button_pressed else old_background_color, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT, 4.9)
+	var color_selected:Color = young_background_color if button_pressed else old_background_color
+	vignette_tween.interpolate_property(background, "color", background.color, color_selected, 0.1, 0, 2, 4.9)
 	vignette_tween.start()
 	switch_sfx.play()
 	yield(vignette_tween, "tween_all_completed")

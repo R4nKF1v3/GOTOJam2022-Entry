@@ -320,6 +320,7 @@ region_rect = Rect2( 0, 0, 1684, 174 )
 
 [node name="World" type="Node" groups=["event_synchronizer", "progress_listeners"]]
 script = ExtResource( 1 )
+young_background_color = Color( 1, 1, 1, 1 )
 initial_dialogue = PoolStringArray( "intro1", "intro2", "intro3", "intro4" )
 final_dialogue = PoolStringArray( "outro1", "outro2", "outro3", "outro4" )
 
