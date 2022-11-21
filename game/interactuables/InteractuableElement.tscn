@@ -16,7 +16,7 @@ light_mask = 2
 material = ExtResource( 3 )
 script = ExtResource( 1 )
 texture = ExtResource( 2 )
-outline_color = Color( 1, 0.901961, 0.368627, 0.74902 )
+outline_color = Color( 1, 0.54902, 0.25098, 0.74902 )
 interact_area_shape = SubResource( 4 )
 
 [node name="OutlineTween" type="Tween" parent="."]

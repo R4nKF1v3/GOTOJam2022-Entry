@@ -77,9 +77,9 @@ polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 3, 2, 4, 5, 6, 7 ), PoolI
 outlines = [ PoolVector2Array( 392, 256, 392, 864, 712, 864, 712, 816, 864, 816, 864, 584, 1136, 584, 1136, 832, 1304, 832, 1304, 872, 1384, 872, 1384, 424, 896, 424, 896, 368, 848, 368, 848, 256 ) ]
 
 [sub_resource type="NavigationPolygon" id=2]
-vertices = PoolVector2Array( 1373, 109, 1013, 109, 1013, 21, 1373, 21 )
+vertices = PoolVector2Array( 1370, 61, 1018, 61, 1018, 21, 1370, 21 )
 polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
-outlines = [ PoolVector2Array( 1373, 21, 1013, 21, 1013, 109, 1373, 109 ) ]
+outlines = [ PoolVector2Array( 1370, 21, 1018, 21, 1018, 61, 1370, 61 ) ]
 
 [node name="OldScenario" type="Node2D"]
 script = ExtResource( 1 )
