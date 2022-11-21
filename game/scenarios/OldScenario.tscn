@@ -1,11 +1,11 @@
 [gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://game/scenarios/OldScenario.gd" type="Script" id=1]
-[ext_resource path="res://assets/textures/maps/MapTestBase.png" type="Texture" id=2]
+[ext_resource path="res://assets/textures/maps/Viejo/topMap.png" type="Texture" id=2]
 [ext_resource path="res://game/interactuables/InteractuableElement.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/textures/gameplay/objects/PillBox/pillBox.png" type="Texture" id=4]
 [ext_resource path="res://assets/textures/gameplay/objects/Model/modelFront.png" type="Texture" id=5]
-[ext_resource path="res://assets/textures/maps/MapTestTop.png" type="Texture" id=6]
+[ext_resource path="res://assets/textures/maps/Viejo/baseMap.png" type="Texture" id=6]
 [ext_resource path="res://game/Light.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/textures/gameplay/objects/Model/modelBottom.png" type="Texture" id=8]
 [ext_resource path="res://assets/sounds/music/Viejo.mp3" type="AudioStream" id=9]
@@ -79,13 +79,13 @@ bgm = ExtResource( 9 )
 [node name="Map" type="Sprite" parent="."]
 position = Vector2( 960, 540 )
 z_as_relative = false
-texture = ExtResource( 2 )
+texture = ExtResource( 6 )
 
 [node name="MapTop" type="Sprite" parent="."]
 position = Vector2( 960, 540 )
 z_index = 3
 z_as_relative = false
-texture = ExtResource( 6 )
+texture = ExtResource( 2 )
 
 [node name="Walls" type="Node2D" parent="."]
 z_index = 1
@@ -294,16 +294,16 @@ z_index = 2
 z_as_relative = false
 
 [node name="BakedLight" parent="Lights" instance=ExtResource( 7 )]
-position = Vector2( 681, 319 )
+position = Vector2( 757, 319 )
 LightColor = Color( 1, 0.937255, 0, 0.466667 )
 LightSize = 200.0
 
 [node name="BakedLight2" parent="Lights" instance=ExtResource( 7 )]
-position = Vector2( 627, 745 )
+position = Vector2( 703, 745 )
 LightColor = Color( 1, 0.937255, 0, 0.466667 )
 
 [node name="BakedLight3" parent="Lights" instance=ExtResource( 7 )]
-position = Vector2( 1239, 884 )
+position = Vector2( 1314, 884 )
 LightColor = Color( 1, 0.937255, 0, 0.466667 )
 
 [node name="Over" type="Node2D" parent="."]

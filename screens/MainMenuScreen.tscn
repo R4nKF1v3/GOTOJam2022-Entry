@@ -62,7 +62,7 @@ texture_normal = ExtResource( 3 )
 texture_pressed = ExtResource( 4 )
 texture_hover = ExtResource( 3 )
 texture_disabled = ExtResource( 3 )
-texture_focused = ExtResource( 3 )
+texture_focused = ExtResource( 4 )
 
 [node name="TextureRect" type="TextureRect" parent="Container" index="2"]
 margin_right = 40.0

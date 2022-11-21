@@ -1,8 +1,8 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://game/scenarios/YoungScenario.gd" type="Script" id=1]
-[ext_resource path="res://assets/textures/maps/MapTestBase.png" type="Texture" id=2]
-[ext_resource path="res://assets/textures/maps/MapTestTop.png" type="Texture" id=3]
+[ext_resource path="res://assets/textures/maps/Joven/baseMap.png" type="Texture" id=2]
+[ext_resource path="res://assets/textures/maps/Joven/topMap.png" type="Texture" id=3]
 [ext_resource path="res://game/interactuables/InteractuableElement.tscn" type="PackedScene" id=4]
 [ext_resource path="res://game/Light.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/textures/gameplay/objects/Model/modelFront.png" type="Texture" id=6]
@@ -72,6 +72,19 @@ extents = Vector2( 32, 32 )
 
 [sub_resource type="RectangleShape2D" id=25]
 extents = Vector2( 32, 32 )
+
+[sub_resource type="ParticlesMaterial" id=26]
+emission_shape = 2
+emission_box_extents = Vector3( 40, 170, 1 )
+flag_disable_z = true
+direction = Vector3( -1, 0, 0 )
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 3.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 2.0
+scale_random = 1.0
+color = Color( 1, 0.945098, 0, 1 )
 
 [sub_resource type="NavigationPolygon" id=4]
 vertices = PoolVector2Array( 392, 256, 848, 256, 848, 368, 392, 864, 896, 368, 896, 424, 864, 584, 712, 816, 1384, 424, 1384, 872, 1304, 872, 1304, 832, 1136, 832, 1136, 584, 864, 816, 712, 864 )
@@ -333,20 +346,16 @@ z_index = 2
 z_as_relative = false
 
 [node name="BakedLight" parent="Lights" instance=ExtResource( 5 )]
-position = Vector2( 681, 319 )
-LightColor = Color( 1, 0.937255, 0, 0.466667 )
+position = Vector2( 755, 318 )
+LightColor = Color( 1, 0.980392, 0.682353, 0.466667 )
 LightSize = 200.0
 
 [node name="BakedLight2" parent="Lights" instance=ExtResource( 5 )]
-position = Vector2( 627, 745 )
-LightColor = Color( 1, 0.937255, 0, 0.466667 )
-
-[node name="BakedLight3" parent="Lights" instance=ExtResource( 5 )]
-position = Vector2( 1239, 884 )
-LightColor = Color( 1, 0.937255, 0, 0.466667 )
+position = Vector2( 702, 745 )
+LightColor = Color( 1, 0.992157, 0.854902, 0.466667 )
 
 [node name="ClosetLight" parent="Lights" instance=ExtResource( 5 )]
-position = Vector2( 1237, 303 )
+position = Vector2( 1313, 303 )
 LightColor = Color( 1, 0.937255, 0, 0.466667 )
 
 [node name="ClosetLightSFX" parent="Lights/ClosetLight" instance=ExtResource( 8 )]
@@ -361,8 +370,14 @@ mouse_filter = 2
 
 [node name="BakedLight5" parent="Lights/Control" instance=ExtResource( 5 )]
 position = Vector2( 1768, 512 )
-LightColor = Color( 1, 0.988235, 0.835294, 0.466667 )
-LightSize = 1080.0
+LightColor = Color( 1, 0.988235, 0.835294, 0.780392 )
+LightSize = 1296.0
+
+[node name="Particles2D" type="Particles2D" parent="Lights/Control"]
+position = Vector2( 1115, 533 )
+lifetime = 16.0
+randomness = 1.0
+process_material = SubResource( 26 )
 
 [node name="Over" type="Node2D" parent="."]
 z_index = 4

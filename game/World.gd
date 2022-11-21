@@ -8,6 +8,13 @@ onready var young_scenario:Scenario = $YoungScenario
 
 onready var input_block:Control = $Interface/InputBlock
 onready var in_out_anim:AnimationPlayer = $IntroOutroAnim
+onready var switch_sfx:AudioStreamPlayer = $SwitchSFX
+onready var vignette_tween:Tween = $VignetteTween
+onready var vignette:CanvasItem = $Overlay/ScreenEffects/VignetteEffect
+onready var background:ColorRect = $BackgroundLayer/Background
+
+export (Color) var young_background_color:Color
+export (Color) var old_background_color:Color
 
 export (PoolStringArray) var initial_dialogue:PoolStringArray
 export (PoolStringArray) var final_dialogue:PoolStringArray
@@ -38,8 +45,22 @@ func _change_current_scenario(scenario:Scenario) -> void:
 
 
 func _on_ChangeStateButton_toggled(button_pressed: bool) -> void:
+	input_block.show()
+	player.current_path = PoolVector2Array()
+	player.target = player.global_position
+	vignette_tween.interpolate_method(self, "_change_vignette", 0.4, 16.0, 4.9)
+	vignette_tween.interpolate_method(self, "_change_vignette", 16.0, 0.4, 0.1, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT, 4.9)
+	vignette_tween.interpolate_property(background, "color", background.color, young_background_color if button_pressed else old_background_color, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT, 4.9)
+	vignette_tween.start()
+	switch_sfx.play()
+	yield(vignette_tween, "tween_all_completed")
 	_change_current_scenario(young_scenario if button_pressed else old_scenario)
 	player.toggle_state(button_pressed)
+	input_block.hide()
+
+
+func _change_vignette(intensity:float) -> void:
+	vignette.material.set_shader_param("vignette_intensity", intensity)
 
 
 func queue_action(callback:FuncRef, point:Vector2) -> void:
