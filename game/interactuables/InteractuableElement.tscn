@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://game/interactuables/InteractuableElement.gd" type="Script" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://assets/shaders/ElementLightOnly.tres" type="Material" id=3]
+[ext_resource path="res://assets/shaders/ElementOutline.tres" type="Material" id=4]
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 32, 32 )
+
+[node name="InteractuableElement" type="Node2D"]
+light_mask = 2
+material = ExtResource( 3 )
+script = ExtResource( 1 )
+texture = ExtResource( 2 )
+interact_area_shape = SubResource( 4 )
+
+[node name="OutlineTween" type="Tween" parent="."]
+
+[node name="Body" type="Sprite" parent="."]
+light_mask = 2
+material = ExtResource( 4 )
+texture = ExtResource( 2 )
+
+[node name="InteractArea" type="Area2D" parent="."]
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea"]
+shape = SubResource( 4 )
+
+[connection signal="area_entered" from="InteractArea" to="." method="_on_InteractArea_area_entered"]
+[connection signal="area_exited" from="InteractArea" to="." method="_on_InteractArea_area_exited"]
+[connection signal="input_event" from="InteractArea" to="." method="_on_InteractArea_input_event"]

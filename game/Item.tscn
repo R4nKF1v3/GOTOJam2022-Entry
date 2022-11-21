@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://game/Item.gd" type="Script" id=1]
+[ext_resource path="res://assets/textures/item_rect.png" type="Texture" id=2]
+
+[sub_resource type="StyleBoxTexture" id=1]
+texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 42, 42 )
+
+[node name="Item" type="Panel" groups=["progress_listeners"]]
+margin_right = 100.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 1 )

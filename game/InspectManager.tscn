@@ -1,0 +1,65 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/textures/arrow_right.png" type="Texture" id=1]
+[ext_resource path="res://game/InspectManager.gd" type="Script" id=2]
+[ext_resource path="res://assets/fonts/en/regular_medium.tres" type="DynamicFont" id=3]
+
+[node name="InspectManager" type="Control" groups=["inspector"]]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+script = ExtResource( 2 )
+
+[node name="BG" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.501961 )
+
+[node name="InspectPreview" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 200.0
+margin_top = 100.0
+margin_right = -200.0
+margin_bottom = -150.0
+expand = true
+stretch_mode = 6
+
+[node name="ScrollLeft" type="TextureButton" parent="."]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 13.0
+margin_top = -285.0
+margin_right = 184.0
+margin_bottom = 286.0
+texture_normal = ExtResource( 1 )
+expand = true
+stretch_mode = 5
+flip_h = true
+
+[node name="ScrollRight" type="TextureButton" parent="."]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -184.0
+margin_top = -285.0
+margin_right = -13.0
+margin_bottom = 286.0
+texture_normal = ExtResource( 1 )
+expand = true
+stretch_mode = 5
+
+[node name="ReturnButton" type="Button" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -128.0
+margin_top = 5.0
+margin_right = -7.0
+margin_bottom = 59.0
+custom_fonts/font = ExtResource( 3 )
+text = "return"
+
+[connection signal="button_up" from="ScrollLeft" to="." method="_on_ScrollLeft_button_up"]
+[connection signal="button_up" from="ScrollRight" to="." method="_on_ScrollRight_button_up"]
+[connection signal="button_up" from="ReturnButton" to="." method="_on_ReturnButton_button_up"]

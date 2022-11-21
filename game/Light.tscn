@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://game/Light.cs" type="Script" id=1]
+
+[sub_resource type="CanvasItemMaterial" id=10]
+blend_mode = 1
+light_mode = 1
+
+[node name="BakedLight" type="Node2D"]
+material = SubResource( 10 )
+script = ExtResource( 1 )
+RefreshOnEditor = true
+ShadowResolution = 540
+LightColor = Color( 1, 1, 1, 0.698039 )
+LightSize = 270.0
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+cast_to = Vector2( 269.982, 3.14154 )

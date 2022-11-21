@@ -1,36 +1,209 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://game/scenarios/OldScenario.gd" type="Script" id=1]
-[ext_resource path="res://assets/textures/maps/MapsOutline.png" type="Texture" id=2]
+[ext_resource path="res://assets/textures/maps/MapTestBase.png" type="Texture" id=2]
+[ext_resource path="res://game/interactuables/InteractuableElement.tscn" type="PackedScene" id=3]
+[ext_resource path="res://icon.png" type="Texture" id=4]
+[ext_resource path="res://assets/textures/vision_range.png" type="Texture" id=5]
+[ext_resource path="res://assets/textures/maps/MapTestTop.png" type="Texture" id=6]
+[ext_resource path="res://game/Light.tscn" type="PackedScene" id=7]
 
-[sub_resource type="NavigationPolygon" id=1]
-vertices = PoolVector2Array( 784, 288, 880, 288, 880, 328, 752, 520, 1504, 328, 1504, 816, 1376, 816, 1208, 520, 1376, 840, 1208, 840, 752, 856, 600, 856, 224, 680, 192, 160, 600, 904, 224, 904, 192, 680, 768, 160, 784, 176 )
-polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 4, 5, 6, 7 ), PoolIntArray( 6, 8, 9, 7 ), PoolIntArray( 2, 4, 7, 3 ), PoolIntArray( 3, 10, 11, 12, 13 ), PoolIntArray( 11, 14, 15, 12 ), PoolIntArray( 12, 16, 13 ), PoolIntArray( 0, 3, 13, 17, 18 ) ]
-outlines = [ PoolVector2Array( 192, 160, 192, 680, 224, 680, 224, 904, 600, 904, 600, 856, 752, 856, 752, 520, 1208, 520, 1208, 840, 1376, 840, 1376, 816, 1504, 816, 1504, 328, 880, 328, 880, 288, 784, 288, 784, 176, 768, 160 ) ]
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 13, 420 )
+
+[sub_resource type="OccluderPolygon2D" id=7]
+polygon = PoolVector2Array( 16, -368, 16, 472, -8, 472, -8, -368 )
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 612, 12 )
+
+[sub_resource type="OccluderPolygon2D" id=9]
+polygon = PoolVector2Array( 600, 8, -624, 8, -624, -16, 600, -16 )
+
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 612, 12 )
+
+[sub_resource type="OccluderPolygon2D" id=11]
+polygon = PoolVector2Array( 600, 8, -624, 8, -624, -16, 600, -16 )
+
+[sub_resource type="RectangleShape2D" id=12]
+extents = Vector2( 8, 188 )
+
+[sub_resource type="OccluderPolygon2D" id=13]
+polygon = PoolVector2Array( 8, 136, -8, 136, -8, -240, 8, -240 )
+
+[sub_resource type="RectangleShape2D" id=14]
+extents = Vector2( 8, 52 )
+
+[sub_resource type="OccluderPolygon2D" id=15]
+polygon = PoolVector2Array( 8, 88, -8, 88, -8, -40, 8, -40 )
+
+[sub_resource type="RectangleShape2D" id=16]
+extents = Vector2( 8.5, 135.5 )
+
+[sub_resource type="OccluderPolygon2D" id=17]
+polygon = PoolVector2Array( 12, 138, -5, 138, -5, -133, 12, -133 )
+
+[sub_resource type="RectangleShape2D" id=18]
+extents = Vector2( 287.5, 9.5 )
+
+[sub_resource type="OccluderPolygon2D" id=19]
+polygon = PoolVector2Array( 385, 10, -190, 10, -190, -9, 385, -9 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 32, 32 )
+
+[sub_resource type="NavigationPolygon" id=4]
+vertices = PoolVector2Array( 392, 256, 848, 256, 848, 368, 392, 864, 896, 368, 896, 424, 864, 584, 712, 816, 1384, 424, 1384, 872, 1304, 872, 1304, 832, 1136, 832, 1136, 584, 864, 816, 712, 864 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 3, 2, 4, 5, 6, 7 ), PoolIntArray( 8, 9, 10, 11 ), PoolIntArray( 11, 12, 13, 8 ), PoolIntArray( 5, 8, 13, 6 ), PoolIntArray( 6, 14, 7 ), PoolIntArray( 3, 7, 15 ) ]
+outlines = [ PoolVector2Array( 392, 256, 392, 864, 712, 864, 712, 816, 864, 816, 864, 584, 1136, 584, 1136, 832, 1304, 832, 1304, 872, 1384, 872, 1384, 424, 896, 424, 896, 368, 848, 368, 848, 256 ) ]
 
 [sub_resource type="NavigationPolygon" id=2]
-vertices = PoolVector2Array( 1421, -171, 1421, 69, 1309, 69, 1309, 29, 1069, -171, 1069, 29 )
-polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 4, 0, 3, 5 ) ]
-outlines = [ PoolVector2Array( 1421, -171, 1069, -171, 1069, 29, 1309, 29, 1309, 69, 1421, 69 ) ]
+vertices = PoolVector2Array( 1373, 109, 1013, 109, 1013, 21, 1373, 21 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
+outlines = [ PoolVector2Array( 1373, 21, 1013, 21, 1013, 109, 1373, 109 ) ]
 
 [node name="OldScenario" type="Node2D"]
 script = ExtResource( 1 )
 camera_path = NodePath("Camera2D")
-nav_base_path = NodePath("NavBase")
+nav_base_path = NodePath("Navigation2D")
 
 [node name="Map" type="Sprite" parent="."]
 position = Vector2( 960, 540 )
+z_as_relative = false
 texture = ExtResource( 2 )
 
+[node name="MapTop" type="Sprite" parent="."]
+position = Vector2( 960, 540 )
+z_index = 3
+z_as_relative = false
+texture = ExtResource( 6 )
+
 [node name="Walls" type="Node2D" parent="."]
+z_index = 1
+z_as_relative = false
 
-[node name="NavBase" type="NavigationPolygonInstance" parent="."]
-navpoly = SubResource( 1 )
+[node name="Wall" type="StaticBody2D" parent="Walls"]
+position = Vector2( 280, 488 )
 
-[node name="NavCloset" type="NavigationPolygonInstance" parent="."]
-position = Vector2( 3, 251 )
-navpoly = SubResource( 2 )
-enabled = false
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall"]
+position = Vector2( 3, 52 )
+shape = SubResource( 6 )
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Walls/Wall"]
+light_mask = 3
+occluder = SubResource( 7 )
+light_mask = 3
+
+[node name="Wall2" type="StaticBody2D" parent="Walls"]
+position = Vector2( 896, 952 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall2"]
+position = Vector2( -12, -4 )
+shape = SubResource( 8 )
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Walls/Wall2"]
+light_mask = 3
+occluder = SubResource( 9 )
+light_mask = 3
+
+[node name="Wall3" type="StaticBody2D" parent="Walls"]
+position = Vector2( 896, 128 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall3"]
+position = Vector2( -12, -4 )
+shape = SubResource( 10 )
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Walls/Wall3"]
+light_mask = 3
+occluder = SubResource( 11 )
+light_mask = 3
+
+[node name="Wall4" type="StaticBody2D" parent="Walls"]
+position = Vector2( 1488, 352 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall4"]
+position = Vector2( 0, -52 )
+shape = SubResource( 12 )
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Walls/Wall4"]
+light_mask = 3
+occluder = SubResource( 13 )
+light_mask = 3
+
+[node name="Wall5" type="StaticBody2D" parent="Walls"]
+position = Vector2( 1488, 872 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall5"]
+position = Vector2( 0, 12 )
+shape = SubResource( 14 )
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Walls/Wall5"]
+light_mask = 3
+occluder = SubResource( 15 )
+light_mask = 3
+
+[node name="Wall6" type="StaticBody2D" parent="Walls"]
+position = Vector2( 928, 248 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall6"]
+position = Vector2( 3.5, 1.5 )
+shape = SubResource( 16 )
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Walls/Wall6"]
+light_mask = 3
+occluder = SubResource( 17 )
+light_mask = 3
+
+[node name="Wall7" type="StaticBody2D" parent="Walls"]
+position = Vector2( 1112, 376 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall7"]
+position = Vector2( 97.5, 0.5 )
+shape = SubResource( 18 )
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Walls/Wall7"]
+light_mask = 3
+occluder = SubResource( 19 )
+light_mask = 3
+
+[node name="Interactuables" type="Node2D" parent="."]
+z_index = 1
+z_as_relative = false
+
+[node name="InteractuableElement" parent="Interactuables" instance=ExtResource( 3 )]
+position = Vector2( 781, 872 )
+interact_area_shape = SubResource( 5 )
+tooltip = "I'm a banana, i'm a banana!"
+dialogue = PoolStringArray( "Que onda wachin", "Como esta tu vieja\?" )
+inspect_textures = [ ExtResource( 4 ), ExtResource( 5 ) ]
+progress_key_unlock = "asd"
+
+[node name="Lights" type="Node2D" parent="."]
+z_index = 2
+z_as_relative = false
+
+[node name="BakedLight" parent="Lights" instance=ExtResource( 7 )]
+position = Vector2( 681, 319 )
+LightColor = Color( 1, 0.937255, 0, 0.466667 )
+LightSize = 200.0
+
+[node name="BakedLight2" parent="Lights" instance=ExtResource( 7 )]
+position = Vector2( 627, 745 )
+LightColor = Color( 1, 0.937255, 0, 0.466667 )
+
+[node name="BakedLight3" parent="Lights" instance=ExtResource( 7 )]
+position = Vector2( 1239, 884 )
+LightColor = Color( 1, 0.937255, 0, 0.466667 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 960, 540 )
+
+[node name="Navigation2D" type="Navigation2D" parent="."]
+
+[node name="NavBase" type="NavigationPolygonInstance" parent="Navigation2D"]
+navpoly = SubResource( 4 )
+
+[node name="NavCloset" type="NavigationPolygonInstance" parent="Navigation2D"]
+position = Vector2( 3, 251 )
+navpoly = SubResource( 2 )
