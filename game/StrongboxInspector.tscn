@@ -1,0 +1,379 @@
+[gd_scene load_steps=27 format=2]
+
+[ext_resource path="res://game/StrongboxInspector.gd" type="Script" id=1]
+[ext_resource path="res://assets/fonts/en/regular_medium.tres" type="DynamicFont" id=2]
+[ext_resource path="res://assets/textures/gameplay/objects/SafeLock/safeLocks.png" type="Texture" id=3]
+[ext_resource path="res://assets/textures/gameplay/objects/SafeLock/Numbers/number (1).png" type="Texture" id=4]
+[ext_resource path="res://assets/textures/gameplay/objects/SafeLock/Numbers/number (4).png" type="Texture" id=5]
+[ext_resource path="res://assets/textures/gameplay/objects/SafeLock/Numbers/number (5).png" type="Texture" id=6]
+[ext_resource path="res://assets/textures/gameplay/objects/SafeLock/Numbers/number (6).png" type="Texture" id=7]
+[ext_resource path="res://assets/textures/gameplay/objects/SafeLock/Numbers/number (3).png" type="Texture" id=8]
+[ext_resource path="res://assets/textures/gameplay/objects/SafeLock/Numbers/digit(10).png" type="Texture" id=9]
+[ext_resource path="res://assets/textures/gameplay/objects/SafeLock/Numbers/number (8).png" type="Texture" id=10]
+[ext_resource path="res://assets/textures/gameplay/objects/SafeLock/Numbers/number (7).png" type="Texture" id=11]
+[ext_resource path="res://assets/textures/gameplay/objects/SafeLock/Numbers/number(11).png" type="Texture" id=12]
+[ext_resource path="res://assets/textures/gameplay/objects/SafeLock/Numbers/number (2).png" type="Texture" id=13]
+[ext_resource path="res://assets/textures/gameplay/objects/SafeLock/Numbers/number (9).png" type="Texture" id=14]
+[ext_resource path="res://assets/textures/gameplay/objects/SafeLock/Numbers/digit(12).png" type="Texture" id=15]
+[ext_resource path="res://utils/AudioHandler.tscn" type="PackedScene" id=16]
+[ext_resource path="res://game/StrongboxButton.gd" type="Script" id=17]
+[ext_resource path="res://assets/sounds/sfx/PillButton.mp3" type="AudioStream" id=18]
+[ext_resource path="res://assets/sounds/sfx/lock_open.wav" type="AudioStream" id=19]
+[ext_resource path="res://assets/sounds/sfx/lock_error.wav" type="AudioStream" id=20]
+
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Pivot/StrongboxBase/KeypadStatus:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.501961 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "opened"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Pivot/StrongboxBase/KeypadStatus:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.501961 ), Color( 0.054902, 1, 0, 0.501961 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "notify_finish"
+} ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("LockSFX")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.0, 1, null, null ],
+"method": "play"
+} ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "wrong"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Pivot/StrongboxBase/KeypadStatus:modulate")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 0.501961 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("LockSFX")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.0, 2, null, null ],
+"method": "play"
+} ]
+}
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 1, 1, 1, 1 )
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="Shader" id=2]
+code = "shader_type canvas_item;
+
+uniform vec4 line_color : hint_color = vec4(1);
+uniform float line_thickness : hint_range(0, 10) = 1.0;
+
+const vec2 OFFSETS[8] = {
+	vec2(-1, -1), vec2(-1, 0), vec2(-1, 1), vec2(0, -1), vec2(0, 1), 
+	vec2(1, -1), vec2(1, 0), vec2(1, 1)
+};
+
+void fragment() {
+	vec2 size = TEXTURE_PIXEL_SIZE * line_thickness / 2.0;
+	vec4 color = texture(TEXTURE, UV);
+	
+	float inline = 1.0;
+	float outline = 0.0;
+	for (int i = 0; i < OFFSETS.length(); i++) {
+		float sample = texture(TEXTURE, UV + size * OFFSETS[i]).a;
+		outline += sample;
+		inline *= sample;
+	}
+	outline = min(1.0, outline) - color.a;
+	inline = (1.0 - inline) * color.a;
+	
+	vec4 outlined_result = mix(color, line_color, outline + inline);
+	COLOR = mix(color, outlined_result, outlined_result.a);
+}
+"
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = SubResource( 2 )
+shader_param/line_color = Color( 1, 0, 0, 1 )
+shader_param/line_thickness = 3.0
+
+[node name="StrongboxInspector" type="Control" groups=["progress_listeners"]]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+show_progress_key = "inspect_strongbox"
+correct_key = PoolIntArray( 4, 2, 8, 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 4 )
+anims/opened = SubResource( 5 )
+anims/wrong = SubResource( 6 )
+
+[node name="LockSFX" parent="." instance=ExtResource( 16 )]
+_test_index = 2
+_audio_references = [ ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ) ]
+_pitch_scales = [ [ 1.3, 1.4 ], [ 0.3, 0.4 ] ]
+
+[node name="BG" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.501961 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ReturnButton" type="Button" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -128.0
+margin_top = 5.0
+margin_right = -7.0
+margin_bottom = 59.0
+custom_fonts/font = ExtResource( 2 )
+text = "return"
+
+[node name="Pivot" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+
+[node name="StrongboxBase" type="Sprite" parent="Pivot"]
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="KeypadStatus" type="Control" parent="Pivot/StrongboxBase"]
+modulate = Color( 1, 1, 1, 0.501961 )
+margin_left = 106.0
+margin_top = -104.0
+margin_right = 248.0
+margin_bottom = -94.0
+mouse_filter = 2
+
+[node name="Light1" type="Panel" parent="Pivot/StrongboxBase/KeypadStatus"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 20.0
+margin_bottom = 7.0
+mouse_filter = 2
+custom_styles/panel = SubResource( 1 )
+
+[node name="Light2" type="Panel" parent="Pivot/StrongboxBase/KeypadStatus"]
+margin_left = 62.0
+margin_top = 2.0
+margin_right = 80.0
+margin_bottom = 7.0
+mouse_filter = 2
+custom_styles/panel = SubResource( 1 )
+
+[node name="Light3" type="Panel" parent="Pivot/StrongboxBase/KeypadStatus"]
+margin_left = 121.0
+margin_top = 2.0
+margin_right = 139.0
+margin_bottom = 7.0
+mouse_filter = 2
+custom_styles/panel = SubResource( 1 )
+
+[node name="Keypad" type="Control" parent="Pivot/StrongboxBase"]
+margin_left = 78.0
+margin_top = -94.0
+margin_right = 266.0
+margin_bottom = 138.0
+
+[node name="Button1" type="TextureButton" parent="Pivot/StrongboxBase/Keypad"]
+material = SubResource( 3 )
+margin_left = 5.0
+margin_top = -1.0
+margin_right = 67.0
+margin_bottom = 60.0
+texture_normal = ExtResource( 4 )
+expand = true
+stretch_mode = 5
+script = ExtResource( 17 )
+number = 1
+
+[node name="Button2" type="TextureButton" parent="Pivot/StrongboxBase/Keypad"]
+material = SubResource( 3 )
+margin_left = 67.0
+margin_top = -1.0
+margin_right = 129.0
+margin_bottom = 60.0
+texture_normal = ExtResource( 13 )
+expand = true
+stretch_mode = 5
+script = ExtResource( 17 )
+number = 2
+
+[node name="Button3" type="TextureButton" parent="Pivot/StrongboxBase/Keypad"]
+material = SubResource( 3 )
+margin_left = 129.0
+margin_top = -1.0
+margin_right = 191.0
+margin_bottom = 60.0
+texture_normal = ExtResource( 8 )
+expand = true
+stretch_mode = 5
+script = ExtResource( 17 )
+number = 3
+
+[node name="Button4" type="TextureButton" parent="Pivot/StrongboxBase/Keypad"]
+material = SubResource( 3 )
+margin_left = 3.0
+margin_top = 60.0
+margin_right = 65.0
+margin_bottom = 121.0
+texture_normal = ExtResource( 5 )
+expand = true
+stretch_mode = 5
+script = ExtResource( 17 )
+number = 4
+
+[node name="Button5" type="TextureButton" parent="Pivot/StrongboxBase/Keypad"]
+material = SubResource( 3 )
+margin_left = 64.0
+margin_top = 58.0
+margin_right = 126.0
+margin_bottom = 119.0
+texture_normal = ExtResource( 6 )
+expand = true
+stretch_mode = 5
+script = ExtResource( 17 )
+number = 5
+
+[node name="Button6" type="TextureButton" parent="Pivot/StrongboxBase/Keypad"]
+material = SubResource( 3 )
+margin_left = 124.0
+margin_top = 58.0
+margin_right = 186.0
+margin_bottom = 119.0
+texture_normal = ExtResource( 7 )
+expand = true
+stretch_mode = 5
+script = ExtResource( 17 )
+number = 6
+
+[node name="Button7" type="TextureButton" parent="Pivot/StrongboxBase/Keypad"]
+material = SubResource( 3 )
+margin_top = 116.0
+margin_right = 62.0
+margin_bottom = 177.0
+texture_normal = ExtResource( 11 )
+expand = true
+stretch_mode = 5
+script = ExtResource( 17 )
+number = 7
+
+[node name="Button8" type="TextureButton" parent="Pivot/StrongboxBase/Keypad"]
+material = SubResource( 3 )
+margin_left = 60.0
+margin_top = 116.0
+margin_right = 122.0
+margin_bottom = 177.0
+texture_normal = ExtResource( 10 )
+expand = true
+stretch_mode = 5
+script = ExtResource( 17 )
+number = 8
+
+[node name="Button9" type="TextureButton" parent="Pivot/StrongboxBase/Keypad"]
+material = SubResource( 3 )
+margin_left = 120.0
+margin_top = 116.0
+margin_right = 182.0
+margin_bottom = 177.0
+texture_normal = ExtResource( 14 )
+expand = true
+stretch_mode = 5
+script = ExtResource( 17 )
+number = 9
+
+[node name="Button0" type="TextureButton" parent="Pivot/StrongboxBase/Keypad"]
+material = SubResource( 3 )
+margin_left = 58.0
+margin_top = 172.0
+margin_right = 120.0
+margin_bottom = 233.0
+texture_normal = ExtResource( 12 )
+expand = true
+stretch_mode = 5
+script = ExtResource( 17 )
+
+[node name="Button11" type="TextureButton" parent="Pivot/StrongboxBase"]
+margin_left = 77.0
+margin_top = 79.0
+margin_right = 139.0
+margin_bottom = 140.0
+texture_normal = ExtResource( 9 )
+expand = true
+stretch_mode = 5
+
+[node name="Button12" type="TextureButton" parent="Pivot/StrongboxBase"]
+margin_left = 194.0
+margin_top = 78.0
+margin_right = 256.0
+margin_bottom = 139.0
+texture_normal = ExtResource( 15 )
+expand = true
+stretch_mode = 5
+
+[connection signal="button_up" from="ReturnButton" to="." method="_on_ReturnButton_button_up"]

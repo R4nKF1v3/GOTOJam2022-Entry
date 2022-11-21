@@ -1,1 +1,56 @@
 key,en,es
+start,start,iniciar
+exit,exit,salir
+## Intro Outro,,
+intro1,I... who am i?,Yo... ¿Quién soy yo?
+intro2,"I think i remember a home, and people. People smiling","Creo que recuerdo un hogar, y gente. Gente sonriendo"
+intro3,And... myself? In another time...,Y... ¿Yo mismo? En otro tiempo...
+intro4,Who am i?,¿Quién soy yo?
+outro1,"Now, i think i remember you","Ahora, creo que te recuerdo"
+outro2,"Yes, smiling from the corner","Si, sonriendo desde un rincón"
+outro3,My son...,Mi hijo...
+outro4,I... who am i?,Yo... ¿Quién soy yo?
+## Items,,
+pills,"Some pills, i think they make me feel good","Unas píldoras, creo que me hacen sentir bien"
+pliers,These pliers... trusty tools,Estas pinzas... herramienta confiable
+screwdriver,"A small screwdriver, could be a kid's","Un pequeño destornillador, podría ser de un niño"
+closet_key,"The key of that door, i think?","La llave de esa puerta, ¿Creo?"
+hanger,A good 'ol hanger. My jacket could fit in this,Una buena percha. Podría colgar mi chaqueta con ella
+## Key World Descriptions,,
+desk_pills,"My pills. I need these, but for what?","Mis píldoras. Las necesito, pero ¿Para qué?"
+desk_pills_tooltip,Pills box,Caja de píldoras
+model_old,This... I remember making this,Esto... Recuerdo haber armado esto
+model_young,"My model, one of my finest creations back when","Mi maqueta, una de mis mejores creaciones de entonces"
+model_tooltip,Model,Maqueta
+toolbox_closed,"Oh, my dear pliers, i should never go anywhere without them","Oh, mis queridas pinzas, no debería ir a ningún lado sin ellas"
+toolbox_opened,"Tools everywhere, with some fine precision equipment worth a lot","Herramientas por doquier, con equipamiento de precisión muy caro"
+toolbox_tooltip,Toolbox,Caja de herramientas
+strongbox,"This strongbox, i don't remember the code. Maybe i left it around here?","Esta caja fuerte, no recuerdo el código. ¿Quizás lo deje por algún lado?"
+strongbox_tooltip,Strongbox,Caja fuerte
+toys_shelves,"Some toys, do they belong to me?","Algunos juguetes, ¿Acaso me pertenecen?"
+toys_unused,"Beautiful toys, is that a screwdriver i see inside that one? Let me get the pliers...",Hermosos juguetes. ¿Eso es un destornillador adentro de aquel? A ver usaré las pinzas...
+toys_used,"Some beautiful toys, the head of a transparent one is missing","Unos juguetes hermosos, le falta la cabeza a uno transparente"
+toys_tooltip,Toys,Juguetes
+bate_wall,"My trusty bat, although i never could score a home run","Mi confiable bate, aunque nunca pude anotar un home run"
+bate_unused1,"Mmm, i'll unscrew this one...","Mmm, desatornillare esto..."
+bate_unused2,"Look at this, i never could see it up close like this. Was that a sound of keys?","Oh, mira esto, nunca lo pude mirar así de cerca. ¿Acaso sonó como a llaves?"
+bate_used,My trusty bat. There are some markers made by the maker,Mi confiable bate. Hay algunas marcas hechas por el fabricante
+bate_tooltip,Baseball Bat,Bate de béisbol
+reliquary_wall,A reliquary. There is a key behind the crystal,Un relicario. Hay una llave detrás del cristal
+reliquary_unused,"Oh, this is open. I'll take the key","Oh, esto está abierto. Me llevo la llave"
+reliquary_used,"A cute reliquary. I don't really remember any of these decorations, though",Un bonito relicario. Aunque no recuerdo ninguna de estas decoraciones
+reliquary_tooltip,Reliquary,Relicario
+closet_jammed,I think this was the closet. The door jammed a long ago,Creo que esto era el closet. La puerta se trabó hace mucho tiempo
+closet_locked,The closet. The key must be around here,El closet. La llave debe de estar por aquí
+closet_unlocked,"Aha! Look at this mess, i should air this room more often","¡Ajá! Mira este desastre, debería airear esta habitación más seguido"
+closet_tooltip,Closet door,Puerta del closet
+bearbox,What a cute bear. I wonder if it belongued to someone,Que bonito oso. Me pregunto si le perteneció a alguien
+bearbox_tooltip,A box,Una caja
+hanger_unused,"What do we have here? A hanger, i wonder if it would be useful...","¿Que tenemos aquí? Un perchero, me pregunto si será útil"
+hanger_used,"There are some old jackets. ""The Hellhounds"", what are those?","Hay unas chaquetas viejas. ""Los Perros del Infierno"", ¿Qué es eso?"
+hanger_tooltip,A coat rack,Un perchero
+nightstand_locked,"A regular nightstand, i guess. The drawer seems to be jammed with something",Una mesa de luz regular. El cajón parece estar trabado con algo
+nightstand_unused1,"Let's see, the hanger here, here with the pliers...","Veamos, el perchero por aquí, usamos las pinzas..."
+nightstand_unused2,"Done! Some letters, i don't want to touch the seal, i feel like i don't want to","¡Hecho! Unas cartas, no quiero tocar el sello, siento que no quiero hacerlo"
+nightstand_used,Some letters with some stamps that i don't recognize,Algunas cartas con estampas que no reconozco
+nightstand_tooltip,Nightstand,Mesa de luz

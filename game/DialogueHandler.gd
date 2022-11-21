@@ -13,9 +13,10 @@ var dialogue_nospace:String
 
 func _ready() -> void:
 	text = ""
+	modulate.a = 0.0
 
 
-func show_dialogue(dialogue:PoolStringArray, _dialogue_speed:float = 0.1) -> void:
+func show_dialogue(dialogue:PoolStringArray, _dialogue_speed:float = 0.05) -> void:
 	self.dialogue_speed = _dialogue_speed
 	fade_tween.remove_all()
 	delay_timer.stop()

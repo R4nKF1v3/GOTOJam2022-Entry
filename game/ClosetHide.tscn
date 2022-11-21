@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://game/ClosetHide.gd" type="Script" id=1]
+
+[node name="ClosetHide" type="ColorRect" groups=["progress_listeners"]]
+margin_left = 1015.0
+margin_top = 116.0
+margin_right = 1574.0
+margin_bottom = 366.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 1 )
+script = ExtResource( 1 )
+closet_key = "unlocked_closet"
+
+[node name="Tween" type="Tween" parent="."]

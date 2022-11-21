@@ -20,20 +20,22 @@ func _ready() -> void:
 		streams_pool.push_back(audio_stream)
 
 
-func change_main_bgm(audio:AudioStream, db:float = 0.0, pitch_scale:float = 1.0, transition:float = 1.0)->void:
+func change_main_bgm(audio:AudioStream, db:float = 0.0, pitch_scale:float = 1.0, transition:float = 1.0, keep_duration:bool = false)->void:
 	bgm_tween.remove_all()
 	if current_bgm != null && current_bgm.stream == audio:
 		bgm_tween.interpolate_property(current_bgm, "volume_db", current_bgm.volume_db, db, transition)
 	else:
+		var duration:float = 0.0
 		if current_bgm != null:
 			bgm_tween.interpolate_property(current_bgm, "volume_db", current_bgm.volume_db, -100.0, transition)
 			_remove_stream(current_bgm, transition)
+			duration = current_bgm.get_playback_position()
 		current_bgm = _get_audio_stream()
 		current_bgm.stream = audio
 		current_bgm.volume_db = -100.0
 		current_bgm.pitch_scale = pitch_scale
 		current_bgm.bus = bgm_bus
-		current_bgm.call_deferred("play")
+		current_bgm.call_deferred("play", duration if keep_duration else 0.0)
 		
 		bgm_tween.interpolate_property(current_bgm, "volume_db", -100.0, db, transition)
 	

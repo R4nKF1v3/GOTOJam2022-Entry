@@ -1,8 +1,16 @@
 extends Node
 
+signal game_cleared()
+
 onready var player:Player = $Player
 onready var old_scenario:Scenario = $OldScenario
 onready var young_scenario:Scenario = $YoungScenario
+
+onready var input_block:Control = $Interface/InputBlock
+onready var in_out_anim:AnimationPlayer = $IntroOutroAnim
+
+export (PoolStringArray) var initial_dialogue:PoolStringArray
+export (PoolStringArray) var final_dialogue:PoolStringArray
 
 var current_scenario:Scenario
 
@@ -12,10 +20,13 @@ var callback_point:Vector2
 var keys_unlocked:Array = []
 
 
-func _ready() -> void:
+func setup() -> void:
 	old_scenario.setup()
 	young_scenario.setup()
 	_change_current_scenario(old_scenario)
+	input_block.show()
+	get_tree().call_group("dialogue", "show_dialogue", initial_dialogue)
+	in_out_anim.play("intro")
 
 
 func _change_current_scenario(scenario:Scenario) -> void:
@@ -26,8 +37,9 @@ func _change_current_scenario(scenario:Scenario) -> void:
 	current_scenario.set_as_current(player)
 
 
-func _on_ChangeStateButton_button_up() -> void:
-	_change_current_scenario(old_scenario if current_scenario == young_scenario else young_scenario)
+func _on_ChangeStateButton_toggled(button_pressed: bool) -> void:
+	_change_current_scenario(young_scenario if button_pressed else old_scenario)
+	player.toggle_state(button_pressed)
 
 
 func queue_action(callback:FuncRef, point:Vector2) -> void:
@@ -51,4 +63,14 @@ func _on_Player_stopped_moving() -> void:
 
 
 func notify_key_progress_unlocked(key_progress:String) -> void:
-	keys_unlocked.push_back(key_progress)
+	if !keys_unlocked.has(key_progress):
+		keys_unlocked.push_back(key_progress)
+
+
+func _on_StrongboxInspector_strongbox_opened() -> void:
+	get_tree().call_group("dialogue", "show_dialogue", final_dialogue)
+	in_out_anim.play("outro")
+
+
+func finish() -> void:
+	emit_signal("game_cleared")

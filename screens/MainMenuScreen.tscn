@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://screens/DefaultScreen.tscn" type="PackedScene" id=1]
 [ext_resource path="res://screens/MainMenuScreen.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://assets/textures/ui/play_pressed.png" type="Texture" id=4]
 [ext_resource path="res://assets/textures/ui/title.png" type="Texture" id=5]
 [ext_resource path="res://assets/textures/ui/menu_particle.png" type="Texture" id=6]
+[ext_resource path="res://assets/sounds/music/Inicio/WildKittyTunes - Suspense (mp3).mp3" type="AudioStream" id=7]
 
 [sub_resource type="Curve" id=2]
 _data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.319853, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.742647, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
@@ -28,6 +29,7 @@ color = Color( 0.211765, 0.211765, 0.211765, 1 )
 
 [node name="MainMenuScreen" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
+bgm = ExtResource( 7 )
 
 [node name="Container" type="Control" parent="." index="0"]
 anchor_right = 1.0

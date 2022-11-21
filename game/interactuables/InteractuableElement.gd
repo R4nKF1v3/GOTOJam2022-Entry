@@ -7,6 +7,7 @@ onready var body:Sprite = $Body
 onready var outline_tween: Tween = $OutlineTween
 onready var interact_area: Area2D = $InteractArea
 onready var interact_area_col:CollisionShape2D = $InteractArea/CollisionShape2D
+onready var interact_sfx:AudioHandler = $InteractSFX
 
 export (bool) var starts_hidden:bool = false
 
@@ -15,15 +16,16 @@ export (Color) var outline_color:Color = Color.white
 export (Shape2D) var interact_area_shape:Shape2D setget set_interact_area_shape
 export (String) var tooltip:String
 export (PoolStringArray) var dialogue:PoolStringArray
-export (float) var dialogue_speed:float = 0.1
+export (float) var dialogue_speed:float = 0.05
 export (Array, Texture) var inspect_textures:Array
 
-export (NodePath) var interaction_sfx:NodePath
-
-export (Array, NodePath) var elements_hide:Array
-export (Array, NodePath) var elements_show:Array
+export (AudioStream) var interaction_audio:AudioStream
+export (float) var interaction_audio_db:float
 
 export (String) var progress_key_unlock:String
+export (bool) var key_oneshot:bool = true
+export (String) var hide_on_key:String
+export (String) var show_on_key:String
 
 var in_range:bool = false
 var mouse_in:bool = false
@@ -50,6 +52,9 @@ func _ready() -> void:
 		outline_color.a = 0
 		body.use_parent_material = true
 		visible = !starts_hidden
+		if interaction_audio != null:
+			interact_sfx._audio_references = [interaction_audio]
+			interact_sfx._db_volumes = [interaction_audio_db]
 
 
 func _on_InteractArea_mouse_entered() -> void:
@@ -114,6 +119,14 @@ func _on_InteractArea_input_event(_viewport: Node, event: InputEvent, _shape_idx
 		get_tree().call_group("event_synchronizer", "queue_action", funcref(self, "handle_interaction"), get_global_mouse_position())
 
 
+func notify_key_progress_unlocked(key_progress:String) -> void:
+	match key_progress:
+		hide_on_key:
+			hide()
+		show_on_key:
+			show()
+
+
 func handle_interaction(player:Node2D) -> void:
 	var space_state:Physics2DDirectSpaceState = get_world_2d().direct_space_state
 	var result:Dictionary = space_state.intersect_ray(global_position, player.global_position)
@@ -123,18 +136,11 @@ func handle_interaction(player:Node2D) -> void:
 		if !inspect_textures.empty():
 			tree.call_group("inspector", "show_inspector", inspect_textures)
 		
-		for element_path in elements_hide:
-			var element:Node2D = get_node(element_path)
-			element.hide()
-		for element_path in elements_show:
-			var element:Node2D = get_node(element_path)
-			element.show()
-		
-		var sfx = get_node_or_null(interaction_sfx)
-		if sfx:
-			sfx.play()
+		interact_sfx.play()
 		
 		if !progress_key_unlock.empty():
 			tree.call_group("progress_listeners", "notify_key_progress_unlocked", progress_key_unlock)
+			if key_oneshot:
+				progress_key_unlock = ""
 		
 		emit_signal("activated")

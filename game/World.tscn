@@ -1,7 +1,7 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://game/World.gd" type="Script" id=1]
-[ext_resource path="res://assets/fonts/en/regular_big.tres" type="DynamicFont" id=2]
+[ext_resource path="res://assets/textures/ui/state_old.png" type="Texture" id=2]
 [ext_resource path="res://game/scenarios/YoungScenario.tscn" type="PackedScene" id=3]
 [ext_resource path="res://game/scenarios/OldScenario.tscn" type="PackedScene" id=4]
 [ext_resource path="res://game/player/Player.tscn" type="PackedScene" id=5]
@@ -13,23 +13,188 @@
 [ext_resource path="res://assets/sounds/sfx/typewriter_key.wav" type="AudioStream" id=11]
 [ext_resource path="res://game/InspectManager.tscn" type="PackedScene" id=12]
 [ext_resource path="res://game/Item.tscn" type="PackedScene" id=13]
+[ext_resource path="res://assets/textures/ui/state_young.png" type="Texture" id=14]
+[ext_resource path="res://game/ChangeStateButton.gd" type="Script" id=15]
+[ext_resource path="res://assets/textures/ui/icons/Pliers.png" type="Texture" id=16]
+[ext_resource path="res://assets/textures/ui/icons/Hanger.png" type="Texture" id=17]
+[ext_resource path="res://assets/textures/ui/icons/Key.png" type="Texture" id=18]
+[ext_resource path="res://assets/textures/ui/icons/Screwdriver.png" type="Texture" id=19]
+[ext_resource path="res://assets/textures/ui/icons/Pills.png" type="Texture" id=20]
+[ext_resource path="res://game/StrongboxInspector.tscn" type="PackedScene" id=21]
+[ext_resource path="res://assets/textures/ui/dialogue_back.png" type="Texture" id=22]
+
+[sub_resource type="Animation" id=9]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Player:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Interface/CinematicFade:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Interface/InputBlock:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "intro"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Player:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 9.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Interface/CinematicFade:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 9.5, 10 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Interface/InputBlock:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 10 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "outro"
+length = 17.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Interface/CinematicFade:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.1, 2.6, 4.5, 17 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Player:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 3.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Interface/InputBlock:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 17 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "finish"
+} ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Interface/HUD:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/5/type = "method"
+tracks/5/path = NodePath("Player")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0.7 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ false ],
+"method": "toggle_state"
+} ]
+}
 
 [sub_resource type="Shader" id=2]
 code = "shader_type canvas_item;
 
 uniform float total_brightness = 0.8;
-uniform float desaturation = 1.0;
+uniform float saturation = 1.0;
 uniform float gray_brightness = 1.0;
-uniform float red_mult = 1.0;
-uniform float blue_mult = 1.0;
 
 void fragment()
 {
 	vec4 col = texture(SCREEN_TEXTURE, SCREEN_UV);
 	col.rgb = mix(vec3(0.0), col.rgb, total_brightness);
 	if(!AT_LIGHT_PASS){
-		float median = (col.r + col.g + col.b) / 3.0 * gray_brightness;
-		col = vec4(median * red_mult, median, median * blue_mult, col.a);
+		col.rgb = mix(vec3(dot(vec3(1.0), col.rgb) * 0.33333), col.rgb, saturation) * gray_brightness;
 	}
 	COLOR = col;
 }
@@ -39,10 +204,8 @@ void fragment()
 [sub_resource type="ShaderMaterial" id=3]
 shader = SubResource( 2 )
 shader_param/total_brightness = 0.8
-shader_param/desaturation = 1.0
-shader_param/gray_brightness = 0.8
-shader_param/red_mult = 1.0
-shader_param/blue_mult = 1.0
+shader_param/saturation = 0.1
+shader_param/gray_brightness = 0.5
 
 [sub_resource type="Gradient" id=5]
 offsets = PoolRealArray( 0, 0.268482, 0.798, 1 )
@@ -61,8 +224,19 @@ bg_color = Color( 0, 0, 0, 0 )
 shadow_color = Color( 0, 0, 0, 0.25098 )
 shadow_size = 5
 
+[sub_resource type="StyleBoxTexture" id=7]
+texture = ExtResource( 22 )
+region_rect = Rect2( 0, 0, 1684, 174 )
+
 [node name="World" type="Node" groups=["event_synchronizer", "progress_listeners"]]
 script = ExtResource( 1 )
+initial_dialogue = PoolStringArray( "intro1", "intro2", "intro3", "intro4" )
+final_dialogue = PoolStringArray( "outro1", "outro2", "outro3", "outro4" )
+
+[node name="IntroOutroAnim" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 9 )
+anims/intro = SubResource( 8 )
+anims/outro = SubResource( 10 )
 
 [node name="BackgroundLayer" type="CanvasLayer" parent="."]
 layer = -1
@@ -82,7 +256,10 @@ position = Vector2( 0, 1080 )
 position = Vector2( 826, 732 )
 z_index = 1
 z_as_relative = false
-walk_speed = 200.0
+old_walk_speed = 130.0
+young_walk_speed = 195.0
+old_anim_speed = 0.65
+young_anim_speed = 0.975
 
 [node name="Overlay" type="CanvasLayer" parent="."]
 layer = 0
@@ -108,92 +285,92 @@ environment = SubResource( 4 )
 [node name="Interface" type="CanvasLayer" parent="."]
 
 [node name="HUD" type="Control" parent="Interface"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 
-[node name="ChangeStateButton" type="Button" parent="Interface/HUD"]
+[node name="ChangeStateButton" type="TextureButton" parent="Interface/HUD" groups=["progress_listeners"]]
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = 50.0
-margin_right = 389.0
+margin_right = 484.0
 margin_bottom = 91.0
-custom_fonts/font = ExtResource( 2 )
-text = "Pills"
+toggle_mode = true
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 14 )
+expand = true
+stretch_mode = 5
+script = ExtResource( 15 )
+item_key = "pills"
 
 [node name="Items" type="HBoxContainer" parent="Interface/HUD"]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -237.0
-margin_top = 4.0
+margin_left = -486.0
+margin_top = 7.0
 margin_right = -50.0
-margin_bottom = 87.0
+margin_bottom = 90.0
 grow_horizontal = 0
 custom_constants/separation = 9
 alignment = 2
 
-[node name="Item" parent="Interface/HUD/Items" instance=ExtResource( 13 )]
+[node name="HangerItem" parent="Interface/HUD/Items" instance=ExtResource( 13 )]
+margin_bottom = 83.0
+item_key = "hanger"
+item_texture = ExtResource( 17 )
+tooltip = "hanger"
 
-[node name="Item2" parent="Interface/HUD/Items" instance=ExtResource( 13 )]
-margin_left = 109.0
-margin_right = 209.0
+[node name="ClosetKeyItem" parent="Interface/HUD/Items" instance=ExtResource( 13 )]
+margin_left = 89.0
+margin_right = 169.0
+margin_bottom = 83.0
+item_key = "closet_key"
+item_texture = ExtResource( 18 )
+tooltip = "closet_key"
 
-[node name="Item3" parent="Interface/HUD/Items" instance=ExtResource( 13 )]
-margin_left = 218.0
-margin_right = 318.0
+[node name="ScrewdriverItem" parent="Interface/HUD/Items" instance=ExtResource( 13 )]
+margin_left = 178.0
+margin_right = 258.0
+margin_bottom = 83.0
+item_key = "screwdriver"
+item_texture = ExtResource( 19 )
+tooltip = "screwdriver"
 
-[node name="Item4" parent="Interface/HUD/Items" instance=ExtResource( 13 )]
-margin_left = 327.0
-margin_right = 427.0
+[node name="PliersItem" parent="Interface/HUD/Items" instance=ExtResource( 13 )]
+margin_left = 267.0
+margin_right = 347.0
+margin_bottom = 83.0
+item_key = "pliers"
+item_texture = ExtResource( 16 )
+tooltip = "pliers"
 
-[node name="Item5" parent="Interface/HUD/Items" instance=ExtResource( 13 )]
-margin_left = 436.0
-margin_right = 536.0
+[node name="PîllsItem" parent="Interface/HUD/Items" instance=ExtResource( 13 )]
+margin_left = 356.0
+margin_right = 436.0
+margin_bottom = 83.0
+item_key = "pills"
+item_texture = ExtResource( 20 )
+tooltip = "pills"
 
 [node name="InspectManager" parent="Interface/HUD" instance=ExtResource( 12 )]
+visible = false
 
-[node name="Dialogue" type="Label" parent="Interface/HUD" groups=["dialogue"]]
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 130.0
-margin_top = -71.0
-margin_right = -130.0
-margin_bottom = -23.0
-grow_horizontal = 2
-grow_vertical = 0
-custom_fonts/font = ExtResource( 6 )
-text = "lorem ipsum"
-align = 1
-valign = 1
-autowrap = true
-script = ExtResource( 9 )
-
-[node name="FadeTween" type="Tween" parent="Interface/HUD/Dialogue"]
-
-[node name="TextTimer" type="Timer" parent="Interface/HUD/Dialogue"]
-
-[node name="DelayTimer" type="Timer" parent="Interface/HUD/Dialogue"]
-wait_time = 3.0
-one_shot = true
-
-[node name="TextSFX" parent="Interface/HUD/Dialogue" instance=ExtResource( 10 )]
-_audio_references = [ ExtResource( 11 ) ]
-_db_volumes = [ 0.0 ]
-_pitch_scales = [ [ 0.9, 1.1 ] ]
+[node name="StrongboxInspector" parent="Interface/HUD" instance=ExtResource( 21 )]
+visible = false
 
 [node name="TooltipPos" type="Position2D" parent="Interface" groups=["tooltip"]]
 script = ExtResource( 7 )
 
 [node name="Tooltip" type="Label" parent="Interface/TooltipPos"]
-margin_left = -24.0
+margin_left = -10.0
 margin_top = 45.0
-margin_right = 26.0
+margin_right = 13.0
 margin_bottom = 69.0
 grow_horizontal = 2
 grow_vertical = 2
 custom_fonts/font = ExtResource( 8 )
-text = "lorem"
+text = "lor"
 
 [node name="Panel" type="Panel" parent="Interface/TooltipPos/Tooltip"]
 show_behind_parent = true
@@ -204,8 +381,57 @@ custom_styles/panel = SubResource( 1 )
 
 [node name="FadeTween" type="Tween" parent="Interface/TooltipPos"]
 
+[node name="InputBlock" type="Control" parent="Interface"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="CinematicFade" type="ColorRect" parent="Interface"]
+light_mask = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 1 )
+
+[node name="Dialogue" type="Label" parent="Interface" groups=["dialogue"]]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 130.0
+margin_top = -145.0
+margin_right = -130.0
+grow_horizontal = 2
+grow_vertical = 0
+custom_fonts/font = ExtResource( 6 )
+text = "lorem ipsum"
+align = 1
+valign = 1
+autowrap = true
+script = ExtResource( 9 )
+
+[node name="FadeTween" type="Tween" parent="Interface/Dialogue"]
+
+[node name="TextTimer" type="Timer" parent="Interface/Dialogue"]
+
+[node name="DelayTimer" type="Timer" parent="Interface/Dialogue"]
+wait_time = 3.0
+one_shot = true
+
+[node name="TextSFX" parent="Interface/Dialogue" instance=ExtResource( 10 )]
+_audio_references = [ ExtResource( 11 ) ]
+_db_volumes = [ 0.0 ]
+_pitch_scales = [ [ 0.9, 1.1 ] ]
+
+[node name="Panel" type="Panel" parent="Interface/Dialogue"]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+custom_styles/panel = SubResource( 7 )
+
 [connection signal="changed_target" from="Player" to="." method="_on_Player_changed_target"]
 [connection signal="stopped_moving" from="Player" to="." method="_on_Player_stopped_moving"]
-[connection signal="button_up" from="Interface/HUD/ChangeStateButton" to="." method="_on_ChangeStateButton_button_up"]
-[connection signal="timeout" from="Interface/HUD/Dialogue/TextTimer" to="Interface/HUD/Dialogue" method="_on_TextTimer_timeout"]
-[connection signal="timeout" from="Interface/HUD/Dialogue/DelayTimer" to="Interface/HUD/Dialogue" method="_on_DelayTimer_timeout"]
+[connection signal="toggled" from="Interface/HUD/ChangeStateButton" to="." method="_on_ChangeStateButton_toggled"]
+[connection signal="strongbox_opened" from="Interface/HUD/StrongboxInspector" to="." method="_on_StrongboxInspector_strongbox_opened"]
+[connection signal="timeout" from="Interface/Dialogue/TextTimer" to="Interface/Dialogue" method="_on_TextTimer_timeout"]
+[connection signal="timeout" from="Interface/Dialogue/DelayTimer" to="Interface/Dialogue" method="_on_DelayTimer_timeout"]

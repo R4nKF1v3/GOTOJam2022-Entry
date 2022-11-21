@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/PillButton.mp3-ef0e585f31015fa97eb8842cbffd87d6.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/sfx/PillButton.mp3"
+dest_files=[ "res://.import/PillButton.mp3-ef0e585f31015fa97eb8842cbffd87d6.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

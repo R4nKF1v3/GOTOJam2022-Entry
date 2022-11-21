@@ -12,16 +12,14 @@ func enter(value) -> void:
 		game.queue_free()
 	
 	game = game_scene.instance()
-#	game.connect("game_cleared", self, "_on_game_cleared")
-#	game.connect("quit_requested", self, "_on_quit_requested")
+	game.connect("game_cleared", self, "_on_game_cleared")
 	add_child(game)
-#	game.setup()
+	game.setup()
 	active = true
 	.enter(value)
 
 
 func exit() -> void:
-#	game.notify_exit()
 	yield(get_tree().create_timer(1.0), "timeout")
 	if is_a_parent_of(game):
 		remove_child(game)
@@ -36,6 +34,3 @@ func previous()->void:
 func _on_game_cleared() -> void:
 	_change_screen(GameState.SCREENS.LOADING, GameState.SCREENS.MENU)
 
-
-func _on_quit_requested(screen:int = GameState.SCREENS.MENU) -> void:
-	_change_screen(GameState.SCREENS.LOADING, screen)

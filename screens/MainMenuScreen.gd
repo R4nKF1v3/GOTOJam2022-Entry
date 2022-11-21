@@ -2,6 +2,8 @@ extends Screen
 
 onready var container:Control = $Container
 
+export (AudioStream) var bgm:AudioStream
+
 
 func _ready() -> void:
 	container.visible = active
@@ -10,9 +12,11 @@ func _ready() -> void:
 func _play_enter_animation()->void:
 	active = true
 	container.show()
+	AudioManager.change_main_bgm(bgm, -20)
 
 
 func _play_exit_animation()->void:
+	yield(get_tree().create_timer(1.0),"timeout")
 	container.hide()
 
 

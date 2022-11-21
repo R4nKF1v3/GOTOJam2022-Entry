@@ -1,18 +1,22 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://game/interactuables/InteractuableElement.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
 [ext_resource path="res://assets/shaders/ElementLightOnly.tres" type="Material" id=3]
 [ext_resource path="res://assets/shaders/ElementOutline.tres" type="Material" id=4]
+[ext_resource path="res://utils/AudioHandler.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/sounds/sfx/Interactuable1.wav" type="AudioStream" id=6]
+[ext_resource path="res://assets/sounds/sfx/Interactuable.wav" type="AudioStream" id=7]
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 32, 32 )
 
-[node name="InteractuableElement" type="Node2D"]
+[node name="InteractuableElement" type="Node2D" groups=["progress_listeners"]]
 light_mask = 2
 material = ExtResource( 3 )
 script = ExtResource( 1 )
 texture = ExtResource( 2 )
+outline_color = Color( 1, 0.901961, 0.368627, 0.74902 )
 interact_area_shape = SubResource( 4 )
 
 [node name="OutlineTween" type="Tween" parent="."]
@@ -27,6 +31,11 @@ monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea"]
 shape = SubResource( 4 )
+
+[node name="InteractSFX" parent="." instance=ExtResource( 5 )]
+_audio_references = [ ExtResource( 6 ), ExtResource( 7 ) ]
+_db_volumes = [ -10.0, -10.0 ]
+_pitch_scales = [ [ 0.95, 1.05 ], [ 0.95, 1.05 ] ]
 
 [connection signal="area_entered" from="InteractArea" to="." method="_on_InteractArea_area_entered"]
 [connection signal="area_exited" from="InteractArea" to="." method="_on_InteractArea_area_exited"]

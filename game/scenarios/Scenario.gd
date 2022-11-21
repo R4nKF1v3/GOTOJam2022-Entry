@@ -7,6 +7,9 @@ onready var camera:Camera2D = get_node(camera_path)
 export (NodePath) var nav_base_path:NodePath
 onready var nav_base:Navigation2D = get_node(nav_base_path)
 
+export (AudioStream) var bgm:AudioStream
+export (float) var bgm_db:float = -10
+
 var map:RID
 
 
@@ -19,4 +22,5 @@ func set_as_current(player:Player) -> void:
 	camera.current = true
 	player.current_path = PoolVector2Array()
 	player.target = player.global_position
+	AudioManager.change_main_bgm(bgm, bgm_db, 1, 1, true)
 

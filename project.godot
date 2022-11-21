@@ -71,6 +71,10 @@ version_control_plugin_name="GitAPI"
 
 common/drop_mouse_on_gui_input_disabled=true
 
+[locale]
+
+translations=PoolStringArray( "res://localization/localization.en.translation", "res://localization/localization.es.translation" )
+
 [mono]
 
 project/assembly_name="GOTOGameJam"
