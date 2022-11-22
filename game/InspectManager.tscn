@@ -2,7 +2,7 @@
 
 [ext_resource path="res://assets/textures/ui/arrow_right.png" type="Texture" id=1]
 [ext_resource path="res://game/InspectManager.gd" type="Script" id=2]
-[ext_resource path="res://assets/fonts/en/regular_medium.tres" type="DynamicFont" id=3]
+[ext_resource path="res://assets/textures/ui/exit_button.png" type="Texture" id=3]
 
 [node name="InspectManager" type="Control" groups=["inspector"]]
 anchor_right = 1.0
@@ -52,15 +52,14 @@ texture_normal = ExtResource( 1 )
 expand = true
 stretch_mode = 5
 
-[node name="ReturnButton" type="Button" parent="."]
+[node name="ReturnButton" type="TextureButton" parent="."]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -128.0
-margin_top = 5.0
-margin_right = -7.0
-margin_bottom = 59.0
-custom_fonts/font = ExtResource( 3 )
-text = "return"
+margin_left = -204.0
+margin_top = 45.0
+margin_right = -120.0
+margin_bottom = 129.0
+texture_normal = ExtResource( 3 )
 
 [connection signal="button_up" from="ScrollLeft" to="." method="_on_ScrollLeft_button_up"]
 [connection signal="button_up" from="ScrollRight" to="." method="_on_ScrollRight_button_up"]

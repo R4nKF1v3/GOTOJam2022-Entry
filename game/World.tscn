@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://game/World.gd" type="Script" id=1]
 [ext_resource path="res://assets/textures/ui/state_old.png" type="Texture" id=2]
@@ -23,6 +23,7 @@
 [ext_resource path="res://game/StrongboxInspector.tscn" type="PackedScene" id=21]
 [ext_resource path="res://assets/textures/ui/dialogue_back.png" type="Texture" id=22]
 [ext_resource path="res://assets/sounds/sfx/buildup.wav" type="AudioStream" id=23]
+[ext_resource path="res://game/TipsManager.gd" type="Script" id=24]
 
 [sub_resource type="Animation" id=9]
 length = 0.001
@@ -324,6 +325,15 @@ young_background_color = Color( 1, 1, 1, 1 )
 initial_dialogue = PoolStringArray( "intro1", "intro2", "intro3", "intro4" )
 final_dialogue = PoolStringArray( "outro1", "outro2", "outro3", "outro4", "outro5", "outro6" )
 
+[node name="TipsManager" type="Node" parent="." groups=["progress_listeners"]]
+script = ExtResource( 24 )
+keys_progression = PoolStringArray( "pliers", "screwdriver", "closet_key", "hanger" )
+keys_tips = PoolStringArray( "tip1", "tip2", "tip3", "tip4" )
+
+[node name="TipTimer" type="Timer" parent="TipsManager"]
+wait_time = 5.0
+one_shot = true
+
 [node name="IntroOutroAnim" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 9 )
 anims/intro = SubResource( 8 )
@@ -531,6 +541,7 @@ anchor_bottom = 1.0
 mouse_filter = 2
 custom_styles/panel = SubResource( 7 )
 
+[connection signal="timeout" from="TipsManager/TipTimer" to="TipsManager" method="_on_TipTimer_timeout"]
 [connection signal="changed_target" from="Player" to="." method="_on_Player_changed_target"]
 [connection signal="stopped_moving" from="Player" to="." method="_on_Player_stopped_moving"]
 [connection signal="toggled" from="Interface/HUD/ChangeStateButton" to="." method="_on_ChangeStateButton_toggled"]

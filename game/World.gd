@@ -27,10 +27,6 @@ var callback_point:Vector2
 var keys_unlocked:Array = []
 
 
-func _ready() -> void:
-	setup()
-
-
 func setup() -> void:
 	randomize()
 	old_scenario.setup()
