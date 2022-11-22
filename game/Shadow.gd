@@ -22,3 +22,10 @@ func _on_SpawnTimer_timeout() -> void:
 	global_position = random_point
 	rotation = rand_range(0, PI*2)
 	fade_anim.play("fade_anim")
+
+
+func notify_key_progress_unlocked(key_progress:String) -> void:
+	if key_progress == "strongbox_opened":
+		spawn_timer.stop()
+		fade_anim.stop()
+		hide()

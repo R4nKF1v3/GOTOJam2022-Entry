@@ -12,6 +12,11 @@ outro3,My son...,Mi hijo...
 outro4,...,...
 outro5,I...,Yo...
 outro6,I... who am i?,Yo... ¿Quién soy yo?
+## Tips,,
+tip1,"Mmm, i used to use tools, i think. Where are they?","Mmm, solía utilizar herramientas, creo. ¿Dónde estarán?"
+tip2,"That bat, pretty sure i can take it off the wall somehow","Ese bate, seguro que puedo quitarle de la pared de alguna manera"
+tip3,"The reliquary, i think it had a key...","El relicario, creo que tenía una llave..."
+tip4,"The drawer of the nightstand, i think it's jammed. I'd need some leverage, a hook or a hanger should do the trick","El cajón en la mesa de luz, creo que está trabado. Necesitaría un punto de agarre, un gancho o una percha deberían bastar"
 ## Items,,
 pills,"Some pills, i think they make me feel good","Unas píldoras, creo que me hacen sentir bien"
 pliers,These pliers... trusty tools,Estas pinzas... herramienta confiable
@@ -24,7 +29,7 @@ desk_pills_tooltip,Pills box,Caja de píldoras
 model_old,This... I remember making this,Esto... Recuerdo haber armado esto
 model_young,"My model, one of my finest creations back when","Mi maqueta, una de mis mejores creaciones de entonces"
 model_tooltip,Model,Maqueta
-toolbox_closed,"Oh, my dear pliers, i should never go anywhere without them","Oh, mis queridas pinzas, no debería ir a ningún lado sin ellas"
+toolbox_closed,"My dear pliers, i should never go anywhere without them","Mis queridas pinzas, no debería ir a ningún lado sin ellas"
 toolbox_opened,"Tools everywhere, with some fine precision equipment worth a lot","Herramientas por doquier, con equipamiento de precisión muy caro"
 toolbox_tooltip,Toolbox,Caja de herramientas
 strongbox,"This strongbox, i don't remember the code. Maybe i left it around here?","Esta caja fuerte, no recuerdo el código. ¿Quizás lo deje por algún lado?"
@@ -35,11 +40,11 @@ toys_used,"Some beautiful toys, the head of a transparent one is missing","Unos 
 toys_tooltip,Toys,Juguetes
 bate_wall,"My trusty bat, although i never could score a home run","Mi confiable bate, aunque nunca pude anotar un home run"
 bate_unused1,"Mmm, i'll unscrew this one...","Mmm, desatornillare esto..."
-bate_unused2,"Look at this, i never could see it up close like this. Was that a sound of keys?","Oh, mira esto, nunca lo pude mirar así de cerca. ¿Acaso sonó como a llaves?"
+bate_unused2,"Look at this, i never could see it up close like this. Was that a sound of keys?","Mira esto, nunca lo pude observar así de cerca. ¿Acaso sonó como a llaves?"
 bate_used,My trusty bat. There are some markers made by the maker,Mi confiable bate. Hay algunas marcas hechas por el fabricante
 bate_tooltip,Baseball Bat,Bate de béisbol
 reliquary_wall,A reliquary. There is a key behind the crystal,Un relicario. Hay una llave detrás del cristal
-reliquary_unused,"Oh, this is open. I'll take the key","Oh, esto está abierto. Me llevo la llave"
+reliquary_unused,"This is open, but how?. Doesn't matter, I'll take the key","Esto está abierto, ¿Pero cómo?. No importa, me llevo la llave"
 reliquary_used,"A cute reliquary. I don't really remember any of these decorations, though",Un bonito relicario. Aunque no recuerdo ninguna de estas decoraciones
 reliquary_tooltip,Reliquary,Relicario
 closet_jammed,I think this was the closet. The door jammed a long ago,Creo que esto era el closet. La puerta se trabó hace mucho tiempo
@@ -56,3 +61,41 @@ nightstand_unused1,"Let's see, the hanger here, here with the pliers...","Veamos
 nightstand_unused2,"Done! Some letters, i don't want to touch the seal, i feel like i don't want to","¡Hecho! Unas cartas, no quiero tocar el sello, siento que no quiero hacerlo"
 nightstand_used,Some letters with some stamps that i don't recognize,Algunas cartas con estampas que no reconozco
 nightstand_tooltip,Nightstand,Mesa de luz
+modelgeneric_tooltip,Another model,Otro modelo
+modelgeneric_old,"What a nice building, looks like the one from across the street!","Que lindo edificio, ¡Se ve como el que está al otro lado de la calle!"
+paintwall_tooltip,A painting,Una pintura
+paintwallgeneric_old,That's... something. Reminds me of my dreams. But which ones?,Esto es... algo. Me recuerda a mis sueños.¿Pero cuáles?
+pictureswallgeneric_tooltip,Another painting,Otra pintura
+pictureswallgeneric_old,I don't like this one. I should throw it,No me gusta esta. Debería tirarla
+booksbottomgeneric_tooltip,Bookshelf,Estante de libros
+booksbottomgeneric_old,"Lot's of books, of various genres. I like the ones of that writer, the one... that one","Varios libros, de muchos géneros. Me gustan esos de ese escritor, ese... aquel"
+bookstopleftgeneric_tooltip,Couple of files,Algunos archivos
+bookstopleftgeneric_old,"Who left these here?... Uh, maybe i did","¿Quién dejo estos aquí?... Uh, quizás fui yo"
+bookstopmiddlegeneric_tooltip,Novels,Novelas
+bookstopmiddlegeneric_old,"I remember reading these, but the books weren't as damaged","Recuerdo haber leído estos, aunque los libros no estaban tan lastimados"
+bookstoolbox_tooltip,Technical books,Libros técnicos
+bookstoolbox_old,"These ones look interesting, like they're filled with knowledge. Somehow i feel i already have that knowledge","Estos se ven interesantes, como si estuvieran llenos de conocimientos. De alguna manera siento que yo ya tengo ese conocimiento"
+exitdoor_tooltip,Door,Puerta
+exitdoor_old,"It's a nice door, indeed!",¡Ciertamente es una buena puerta!
+oldplant1_tooltip,Old plant,Planta vieja
+oldplant1_old,This plant seems to have the same age as me!,¡Esta planta parece tener mi edad!
+oldplant2_tooltip,Wilted plant,Planta marchita
+oldplant2_old,"Poor fella, i should remember to water it","Pobrecilla, debería recordar regarla"
+youngplant1_tooltip,Young plant,Planta joven
+youngplant1_old,"Hello, little fella! How are you today?","¡Que tal, pequeño! ¿Cómo andas hoy?"
+youngplant2_tooltip,Hardy plant,Planta resistente
+youngplant2_old,"This one may outlast everyone, look at that vitality!","Ésta podría sobrevivirnos a todos, ¡Mira esa vitalidad!"
+modelgeneric_young_tooltip,Another model,Otro modelo
+modelgeneric_young,"Another one of my works, the city paid nicely for it!","Otro de mis trabajos, ¡La ciudad pagó bastante bien por él!"
+paintwallgeneric_young_tooltip,A painting,Una pintura
+paintwallgeneric_young,"That's some beautiful scenery. Mmm, perhaps i can take some vacations soon?","Ese es un paisaje precioso. Mmm, ¿Quizás me pueda tomar vacaciones pronto?"
+pictureswallgeneric_young_tooltip,Another painting,Otra pintura
+pictureswallgeneric_young,"Abstract art isn't really my forte per se, but i think i can handle it","El arte abstracto no es mi punto fuerte precisamente, pero creo que puedo manejarlo"
+booksbottomgeneric_young_tooltip,Bookshelf,Estante de libros
+booksbottomgeneric_young,"That's a nice collection, oh yeah","Esa es una buena colección, oh si"
+bookstopmiddlegeneric_young_tooltip,Novels,Novelas
+bookstopmiddlegeneric_young,"A bunch of novels, mostly science fiction. I really like those collosal space stations they present","Un monton de novelas, principalmente de ciencia ficción. Me gustan mucho las naves espaciales colosales que presentan"
+exitdoor_young_tooltip,Door,Puerta
+exitdoor_young,The exit door,La puerta de salida
+pc_tooltip,Computer,Computadora
+pc_young,"A good looking PC. Good enough for me, at least","Una PC bien vista. Lo suficientemente buena para mi, al menos"
