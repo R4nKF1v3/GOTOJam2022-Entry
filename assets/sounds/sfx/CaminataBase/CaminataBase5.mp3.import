@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/CaminataBase5.mp3-7c752b25fad8ba527259a54ad51871a0.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/sfx/CaminataBase/CaminataBase5.mp3"
+dest_files=[ "res://.import/CaminataBase5.mp3-7c752b25fad8ba527259a54ad51871a0.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
