@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/BombillaInvertido.mp3-53c2760fd28b0ed4dc82b11f0721b695.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/sfx/Final/BombillaInvertido.mp3"
+dest_files=[ "res://.import/BombillaInvertido.mp3-53c2760fd28b0ed4dc82b11f0721b695.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Pildoras.mp3-4f8d582469753077fe1b15b0cb8f2b0a.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/sfx/Editar/Pildoras.mp3"
+dest_files=[ "res://.import/Pildoras.mp3-4f8d582469753077fe1b15b0cb8f2b0a.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

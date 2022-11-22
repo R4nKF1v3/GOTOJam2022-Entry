@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/WildKittyTunes - Suspense (mp3).mp3-52efd3f04ef501b35cfaa2fdaec960a8.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/sfx/Inicio/WildKittyTunes - Suspense (mp3).mp3"
+dest_files=[ "res://.import/WildKittyTunes - Suspense (mp3).mp3-52efd3f04ef501b35cfaa2fdaec960a8.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

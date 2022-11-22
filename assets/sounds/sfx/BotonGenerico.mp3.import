@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/BotonGenerico.mp3-f2a7411499da0023f419ade448ade47d.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/sfx/BotonGenerico.mp3"
+dest_files=[ "res://.import/BotonGenerico.mp3-f2a7411499da0023f419ade448ade47d.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Llaves.mp3-985d265a335ba1a2a6b1f430c9083330.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/sfx/InteractuablesPrincipales/Llaves.mp3"
+dest_files=[ "res://.import/Llaves.mp3-985d265a335ba1a2a6b1f430c9083330.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
