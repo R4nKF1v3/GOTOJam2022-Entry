@@ -39,7 +39,7 @@
 [ext_resource path="res://assets/textures/maps/Viejo/Interactuables/plantaViejo2.png" type="Texture" id=37]
 [ext_resource path="res://assets/sounds/sfx/Agarrar.wav" type="AudioStream" id=38]
 [ext_resource path="res://assets/sounds/sfx/AbrirCosas_Cerrar/AbrirCajon.wav" type="AudioStream" id=39]
-[ext_resource path="res://assets/sounds/sfx/AbrirCosas_Cerrar/AbrirOsito.wav" type="AudioStream" id=40]
+[ext_resource path="res://assets/sounds/sfx/AbrirCosas_Cerrar/AbrirOsito.ogg" type="AudioStream" id=40]
 
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 13, 420 )

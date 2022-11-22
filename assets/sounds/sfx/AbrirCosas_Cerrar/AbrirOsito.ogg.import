@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/AbrirOsito.ogg-cf6434871b8d008e261725b9076df037.oggstr"
+
+[deps]
+
+source_file="res://assets/sounds/sfx/AbrirCosas_Cerrar/AbrirOsito.ogg"
+dest_files=[ "res://.import/AbrirOsito.ogg-cf6434871b8d008e261725b9076df037.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
