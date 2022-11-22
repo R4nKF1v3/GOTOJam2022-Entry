@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=2]
+[gd_scene load_steps=81 format=2]
 
 [ext_resource path="res://game/scenarios/YoungScenario.gd" type="Script" id=1]
 [ext_resource path="res://assets/textures/maps/Joven/baseMap.png" type="Texture" id=2]
@@ -24,6 +24,7 @@
 [ext_resource path="res://assets/sounds/sfx/InteractuablesPrincipales/AgarrarMaqueta.mp3" type="AudioStream" id=22]
 [ext_resource path="res://assets/sounds/sfx/AbrirCosas_Cerrar/PuertaCerrada.wav" type="AudioStream" id=23]
 [ext_resource path="res://assets/sounds/sfx/AbrirCosas_Cerrar/AbrirPuerta.wav" type="AudioStream" id=24]
+[ext_resource path="res://assets/sounds/sfx/InteractuablesPrincipales/Destonillar.mp3" type="AudioStream" id=25]
 [ext_resource path="res://assets/textures/maps/InteractuablesComun/modelExtra.png" type="Texture" id=27]
 [ext_resource path="res://assets/textures/maps/InteractuablesComun/paintWall.png" type="Texture" id=28]
 [ext_resource path="res://assets/textures/maps/InteractuablesComun/booksBottom.png" type="Texture" id=29]
@@ -377,6 +378,8 @@ interact_area_shape = SubResource( 35 )
 tooltip = "bate_tooltip"
 dialogue = PoolStringArray( "bate_unused1", "bate_unused2" )
 inspect_textures = [ ExtResource( 12 ), ExtResource( 11 ) ]
+interaction_audio = ExtResource( 25 )
+interaction_audio_db = -10.0
 progress_key_unlock = "bate"
 hide_on_key = "bate"
 show_on_key = "screwdriver"
