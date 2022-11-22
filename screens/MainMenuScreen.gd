@@ -23,3 +23,6 @@ func _play_exit_animation()->void:
 func _on_StartButton_button_up() -> void:
 	_change_screen(GameState.SCREENS.LOADING, GameState.SCREENS.GAME)
 
+
+func _on_ReturnButton_button_up() -> void:
+	get_tree().quit()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://screens/DefaultScreen.tscn" type="PackedScene" id=1]
 [ext_resource path="res://screens/MainMenuScreen.gd" type="Script" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://assets/sounds/music/Inicio/WildKittyTunes - Suspense (mp3).mp3" type="AudioStream" id=7]
 [ext_resource path="res://utils/AudioHandler.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/sounds/sfx/BotonGenerico.mp3" type="AudioStream" id=9]
+[ext_resource path="res://assets/textures/ui/exit_button.png" type="Texture" id=10]
 
 [sub_resource type="Curve" id=2]
 _data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.319853, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.742647, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
@@ -69,10 +70,22 @@ texture_hover = ExtResource( 3 )
 texture_disabled = ExtResource( 3 )
 texture_focused = ExtResource( 4 )
 
-[node name="TextureRect" type="TextureRect" parent="Container" index="2"]
+[node name="Title" type="TextureRect" parent="Container" index="2"]
 margin_right = 40.0
 margin_bottom = 40.0
 texture = ExtResource( 5 )
 
+[node name="ReturnButton" type="TextureButton" parent="Container" index="3"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -418.0
+margin_top = -175.0
+margin_right = -334.0
+margin_bottom = -91.0
+texture_normal = ExtResource( 10 )
+
 [connection signal="button_up" from="Container/StartButton" to="." method="_on_StartButton_button_up"]
 [connection signal="button_up" from="Container/StartButton" to="StartSFX" method="play"]
+[connection signal="button_up" from="Container/ReturnButton" to="." method="_on_ReturnButton_button_up"]
