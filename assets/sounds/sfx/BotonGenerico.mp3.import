@@ -11,5 +11,5 @@ dest_files=[ "res://.import/BotonGenerico.mp3-f2a7411499da0023f419ade448ade47d.m
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

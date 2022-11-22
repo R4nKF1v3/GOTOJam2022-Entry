@@ -11,5 +11,5 @@ dest_files=[ "res://.import/PillButton.mp3-ef0e585f31015fa97eb8842cbffd87d6.mp3s
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

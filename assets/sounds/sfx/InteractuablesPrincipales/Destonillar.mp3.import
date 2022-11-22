@@ -11,5 +11,5 @@ dest_files=[ "res://.import/Destonillar.mp3-fedad41369980cea414d2e03b0d59344.mp3
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

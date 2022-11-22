@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://game/World.gd" type="Script" id=1]
 [ext_resource path="res://assets/textures/ui/state_old.png" type="Texture" id=2]
@@ -26,6 +26,7 @@
 [ext_resource path="res://game/TipsManager.gd" type="Script" id=24]
 [ext_resource path="res://assets/sounds/sfx/Final/BombillaInvertido.mp3" type="AudioStream" id=25]
 [ext_resource path="res://assets/sounds/sfx/Final/Destello.wav" type="AudioStream" id=26]
+[ext_resource path="res://assets/sounds/sfx/TomarPildoras.mp3" type="AudioStream" id=27]
 
 [sub_resource type="Animation" id=9]
 length = 0.001
@@ -451,6 +452,9 @@ stretch_mode = 5
 script = ExtResource( 15 )
 item_key = "pills"
 
+[node name="AudioHandler" parent="Interface/HUD/ChangeStateButton" instance=ExtResource( 10 )]
+_audio_references = [ ExtResource( 27 ) ]
+
 [node name="Items" type="HBoxContainer" parent="Interface/HUD"]
 anchor_left = 0.5
 anchor_right = 0.5
@@ -580,6 +584,7 @@ custom_styles/panel = SubResource( 7 )
 [connection signal="timeout" from="TipsManager/TipTimer" to="TipsManager" method="_on_TipTimer_timeout"]
 [connection signal="changed_target" from="Player" to="." method="_on_Player_changed_target"]
 [connection signal="stopped_moving" from="Player" to="." method="_on_Player_stopped_moving"]
+[connection signal="button_up" from="Interface/HUD/ChangeStateButton" to="Interface/HUD/ChangeStateButton/AudioHandler" method="play"]
 [connection signal="toggled" from="Interface/HUD/ChangeStateButton" to="." method="_on_ChangeStateButton_toggled"]
 [connection signal="strongbox_opened" from="Interface/HUD/StrongboxInspector" to="." method="_on_StrongboxInspector_strongbox_opened"]
 [connection signal="timeout" from="Interface/Dialogue/TextTimer" to="Interface/Dialogue" method="_on_TextTimer_timeout"]

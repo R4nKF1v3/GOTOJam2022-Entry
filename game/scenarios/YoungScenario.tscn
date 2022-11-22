@@ -207,7 +207,6 @@ __meta__ = {
 }
 
 [node name="Walls" type="Node2D" parent="."]
-visible = false
 z_index = 1
 z_as_relative = false
 
@@ -487,7 +486,7 @@ tooltip = "pictureswallgeneric_tooltip"
 dialogue = PoolStringArray( "pictureswallgeneric_young" )
 
 [node name="BooksBottom" parent="Interactuables" instance=ExtResource( 4 )]
-position = Vector2( 555, 931 )
+position = Vector2( 555, 927 )
 texture = ExtResource( 29 )
 interact_area_shape = SubResource( 41 )
 tooltip = "booksbottomgeneric_tooltip"
