@@ -11,5 +11,5 @@ dest_files=[ "res://.import/CaminataBase4.mp3-5206ac6c65be952c412d1f97bf944710.m
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

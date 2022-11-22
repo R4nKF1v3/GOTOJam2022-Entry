@@ -6,7 +6,7 @@ signal stopped_moving()
 
 onready var body:AnimatedSprite = $Pivot/Body
 onready var legs:AnimatedSprite = $Pivot/Legs
-
+onready var footsteps_sfx:AudioHandler = $FootstepsSFX
 
 export (Array, SpriteFrames) var old_sprites:Array
 export (Array, SpriteFrames) var young_sprites:Array
@@ -97,3 +97,8 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton && event.button_index == BUTTON_LEFT && event.is_pressed():
 		_walk_to(get_global_mouse_position())
 
+
+func _on_Legs_frame_changed() -> void:
+	var frame:int = legs.frame
+	if frame == 2 || frame == 5:
+		footsteps_sfx.play()

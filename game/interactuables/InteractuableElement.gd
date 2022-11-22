@@ -22,7 +22,7 @@ export (Array, Texture) var inspect_textures:Array
 export (AudioStream) var interaction_audio:AudioStream
 export (float) var interaction_audio_db:float
 
-export (String) var progress_key_unlock:String = "action"
+export (String) var progress_key_unlock:String
 export (bool) var key_oneshot:bool = true
 export (String) var hide_on_key:String
 export (String) var show_on_key:String
@@ -139,9 +139,9 @@ func handle_interaction(player:Node2D) -> void:
 		
 		interact_sfx.play()
 		
-		if !progress_key_unlock.empty():
-			tree.call_group("progress_listeners", "notify_key_progress_unlocked", progress_key_unlock)
-			if key_oneshot && !progress_key_unlock == "action":
-				progress_key_unlock = ""
+		var key:String = "action" if progress_key_unlock.empty() else progress_key_unlock
+		tree.call_group("progress_listeners", "notify_key_progress_unlocked", key)
+		if key_oneshot && key != "action":
+			progress_key_unlock = ""
 		
 		emit_signal("activated")

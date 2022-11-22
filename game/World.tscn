@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://game/World.gd" type="Script" id=1]
 [ext_resource path="res://assets/textures/ui/state_old.png" type="Texture" id=2]
@@ -24,6 +24,8 @@
 [ext_resource path="res://assets/textures/ui/dialogue_back.png" type="Texture" id=22]
 [ext_resource path="res://assets/sounds/sfx/buildup.wav" type="AudioStream" id=23]
 [ext_resource path="res://game/TipsManager.gd" type="Script" id=24]
+[ext_resource path="res://assets/sounds/sfx/Final/BombillaInvertido.mp3" type="AudioStream" id=25]
+[ext_resource path="res://assets/sounds/sfx/Final/Destello.wav" type="AudioStream" id=26]
 
 [sub_resource type="Animation" id=9]
 length = 0.001
@@ -243,6 +245,34 @@ tracks/6/keys = {
 "update": 1,
 "values": [ false, true ]
 }
+tracks/7/type = "audio"
+tracks/7/path = NodePath("IntroOutroSFX")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 26 )
+} ],
+"times": PoolRealArray( 4.9 )
+}
+tracks/8/type = "audio"
+tracks/8/path = NodePath("IntroOutroSFX2")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 25 )
+} ],
+"times": PoolRealArray( 6 )
+}
 
 [sub_resource type="Shader" id=2]
 code = "shader_type canvas_item;
@@ -338,6 +368,12 @@ one_shot = true
 anims/RESET = SubResource( 9 )
 anims/intro = SubResource( 8 )
 anims/outro = SubResource( 10 )
+
+[node name="IntroOutroSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 26 )
+
+[node name="IntroOutroSFX2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 25 )
 
 [node name="VignetteTween" type="Tween" parent="."]
 
@@ -531,7 +567,7 @@ one_shot = true
 
 [node name="TextSFX" parent="Interface/Dialogue" instance=ExtResource( 10 )]
 _audio_references = [ ExtResource( 11 ) ]
-_db_volumes = [ 0.0 ]
+_db_volumes = [ -10.0 ]
 _pitch_scales = [ [ 0.9, 1.1 ] ]
 
 [node name="Panel" type="Panel" parent="Interface/Dialogue"]

@@ -11,5 +11,5 @@ dest_files=[ "res://.import/BombillaInvertido.mp3-53c2760fd28b0ed4dc82b11f0721b6
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0
