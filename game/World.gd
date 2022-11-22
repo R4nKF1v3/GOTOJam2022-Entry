@@ -91,6 +91,7 @@ func notify_key_progress_unlocked(key_progress:String) -> void:
 
 
 func _on_StrongboxInspector_strongbox_opened() -> void:
+	player.target = player.global_position + Vector2.UP * 10.0
 	get_tree().call_group("dialogue", "show_dialogue", final_dialogue)
 	in_out_anim.play("outro")
 	vignette_tween.interpolate_method(self, "_change_vignette", 0.4, 16.0, 0.5)
