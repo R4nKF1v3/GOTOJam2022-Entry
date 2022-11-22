@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=80 format=2]
 
 [ext_resource path="res://game/scenarios/OldScenario.gd" type="Script" id=1]
 [ext_resource path="res://assets/textures/maps/Viejo/topMap.png" type="Texture" id=2]
@@ -23,6 +23,23 @@
 [ext_resource path="res://assets/textures/maps/Viejo/Interactuables/cardTableLeft.png" type="Texture" id=21]
 [ext_resource path="res://assets/textures/maps/Viejo/Interactuables/cardTableRight.png" type="Texture" id=22]
 [ext_resource path="res://game/Shadow.tscn" type="PackedScene" id=23]
+[ext_resource path="res://assets/textures/maps/InteractuablesComun/modelExtra.png" type="Texture" id=24]
+[ext_resource path="res://assets/sounds/sfx/InteractuablesPrincipales/AgarrarMaqueta.mp3" type="AudioStream" id=25]
+[ext_resource path="res://assets/textures/maps/InteractuablesComun/paintWall.png" type="Texture" id=26]
+[ext_resource path="res://assets/textures/maps/InteractuablesComun/booksBottom.png" type="Texture" id=27]
+[ext_resource path="res://assets/textures/maps/InteractuablesComun/booksTopLeft.png" type="Texture" id=28]
+[ext_resource path="res://assets/textures/maps/InteractuablesComun/booksTopMiddle.png" type="Texture" id=29]
+[ext_resource path="res://assets/textures/maps/InteractuablesComun/exitDoor.png" type="Texture" id=30]
+[ext_resource path="res://assets/textures/maps/InteractuablesComun/picturesWall.png" type="Texture" id=31]
+[ext_resource path="res://assets/sounds/sfx/Planta.mp3" type="AudioStream" id=32]
+[ext_resource path="res://assets/textures/maps/Viejo/Interactuables/books - toolBox.png" type="Texture" id=33]
+[ext_resource path="res://assets/textures/maps/Viejo/Interactuables/plantaViejo1.png" type="Texture" id=34]
+[ext_resource path="res://assets/sounds/sfx/MirarLibros.mp3" type="AudioStream" id=35]
+[ext_resource path="res://assets/sounds/sfx/AbrirCosas_Cerrar/PuertaCerrada.wav" type="AudioStream" id=36]
+[ext_resource path="res://assets/textures/maps/Viejo/Interactuables/plantaViejo2.png" type="Texture" id=37]
+[ext_resource path="res://assets/sounds/sfx/Agarrar.wav" type="AudioStream" id=38]
+[ext_resource path="res://assets/sounds/sfx/AbrirCosas_Cerrar/AbrirCajon.wav" type="AudioStream" id=39]
+[ext_resource path="res://assets/sounds/sfx/AbrirCosas_Cerrar/AbrirOsito.wav" type="AudioStream" id=40]
 
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 13, 420 )
@@ -67,10 +84,73 @@ extents = Vector2( 287.5, 9.5 )
 polygon = PoolVector2Array( 385, 10, -190, 10, -190, -9, 385, -9 )
 
 [sub_resource type="RectangleShape2D" id=25]
-extents = Vector2( 32, 32 )
+extents = Vector2( 55, 35 )
+
+[sub_resource type="RectangleShape2D" id=27]
+extents = Vector2( 20, 18 )
+
+[sub_resource type="RectangleShape2D" id=28]
+extents = Vector2( 30, 20 )
+
+[sub_resource type="RectangleShape2D" id=29]
+extents = Vector2( 30, 20 )
+
+[sub_resource type="RectangleShape2D" id=30]
+extents = Vector2( 30, 20 )
+
+[sub_resource type="RectangleShape2D" id=31]
+extents = Vector2( 20, 10 )
+
+[sub_resource type="RectangleShape2D" id=32]
+extents = Vector2( 20, 10 )
+
+[sub_resource type="RectangleShape2D" id=33]
+extents = Vector2( 20, 10 )
 
 [sub_resource type="RectangleShape2D" id=26]
 extents = Vector2( 32, 20 )
+
+[sub_resource type="RectangleShape2D" id=34]
+extents = Vector2( 20, 35 )
+
+[sub_resource type="RectangleShape2D" id=35]
+extents = Vector2( 55, 35 )
+
+[sub_resource type="RectangleShape2D" id=36]
+extents = Vector2( 55, 35 )
+
+[sub_resource type="RectangleShape2D" id=37]
+extents = Vector2( 55, 35 )
+
+[sub_resource type="RectangleShape2D" id=49]
+extents = Vector2( 34, 20 )
+
+[sub_resource type="RectangleShape2D" id=39]
+extents = Vector2( 18, 65 )
+
+[sub_resource type="RectangleShape2D" id=40]
+extents = Vector2( 61, 8 )
+
+[sub_resource type="RectangleShape2D" id=41]
+extents = Vector2( 148, 10 )
+
+[sub_resource type="RectangleShape2D" id=42]
+extents = Vector2( 31, 12 )
+
+[sub_resource type="RectangleShape2D" id=43]
+extents = Vector2( 55, 12 )
+
+[sub_resource type="RectangleShape2D" id=44]
+extents = Vector2( 38, 48 )
+
+[sub_resource type="RectangleShape2D" id=45]
+extents = Vector2( 18, 28 )
+
+[sub_resource type="RectangleShape2D" id=46]
+extents = Vector2( 28, 20 )
+
+[sub_resource type="RectangleShape2D" id=47]
+extents = Vector2( 32, 26 )
 
 [sub_resource type="NavigationPolygon" id=4]
 vertices = PoolVector2Array( 392, 256, 848, 256, 848, 368, 392, 864, 896, 368, 896, 424, 864, 584, 712, 816, 1384, 424, 1384, 872, 1304, 872, 1304, 832, 1136, 832, 1136, 584, 864, 816, 712, 864 )
@@ -204,15 +284,18 @@ hide_on_key = "pills"
 [node name="ModelOld" parent="Interactuables" instance=ExtResource( 3 )]
 position = Vector2( 561, 210 )
 texture = ExtResource( 17 )
-interact_area_shape = SubResource( 25 )
+interact_area_shape = SubResource( 27 )
 tooltip = "model_tooltip"
 dialogue = PoolStringArray( "model_old" )
 inspect_textures = [ ExtResource( 5 ), ExtResource( 8 ) ]
+interaction_audio = ExtResource( 25 )
+interaction_audio_db = -10.0
 
 [node name="ToysShelves" parent="Interactuables" instance=ExtResource( 3 )]
-position = Vector2( 593, 925 )
+position = Vector2( 391, 908 )
+rotation = 1.55373
 texture = ExtResource( 18 )
-interact_area_shape = SubResource( 25 )
+interact_area_shape = SubResource( 28 )
 tooltip = "toys_tooltip"
 dialogue = PoolStringArray( "toys_shelves" )
 hide_on_key = "pliers"
@@ -221,9 +304,10 @@ hide_on_key = "pliers"
 position = Vector2( 593, 809 )
 starts_hidden = true
 texture = ExtResource( 18 )
-interact_area_shape = SubResource( 25 )
+interact_area_shape = SubResource( 29 )
 tooltip = "toys_tooltip"
 dialogue = PoolStringArray( "toys_unused" )
+interaction_audio = ExtResource( 38 )
 progress_key_unlock = "screwdriver"
 hide_on_key = "screwdriver"
 show_on_key = "pliers"
@@ -232,7 +316,7 @@ show_on_key = "pliers"
 position = Vector2( 593, 809 )
 starts_hidden = true
 texture = ExtResource( 18 )
-interact_area_shape = SubResource( 25 )
+interact_area_shape = SubResource( 30 )
 tooltip = "toys_tooltip"
 dialogue = PoolStringArray( "toys_used" )
 show_on_key = "screwdriver"
@@ -240,7 +324,7 @@ show_on_key = "screwdriver"
 [node name="ReliquaryWall" parent="Interactuables" instance=ExtResource( 3 )]
 position = Vector2( 1187, 398 )
 texture = ExtResource( 19 )
-interact_area_shape = SubResource( 25 )
+interact_area_shape = SubResource( 31 )
 tooltip = "reliquary_tooltip"
 dialogue = PoolStringArray( "reliquary_wall" )
 hide_on_key = "bate"
@@ -249,7 +333,7 @@ hide_on_key = "bate"
 position = Vector2( 1187, 398 )
 starts_hidden = true
 texture = ExtResource( 19 )
-interact_area_shape = SubResource( 25 )
+interact_area_shape = SubResource( 32 )
 tooltip = "reliquary_tooltip"
 dialogue = PoolStringArray( "reliquary_unused" )
 progress_key_unlock = "closet_key"
@@ -260,7 +344,7 @@ show_on_key = "bate"
 position = Vector2( 1187, 398 )
 starts_hidden = true
 texture = ExtResource( 19 )
-interact_area_shape = SubResource( 25 )
+interact_area_shape = SubResource( 33 )
 tooltip = "reliquary_tooltip"
 dialogue = PoolStringArray( "reliquary_used" )
 show_on_key = "closet_key"
@@ -272,34 +356,41 @@ texture = ExtResource( 15 )
 interact_area_shape = SubResource( 26 )
 tooltip = "closet_tooltip"
 dialogue = PoolStringArray( "closet_jammed" )
+interaction_audio = ExtResource( 36 )
+interaction_audio_db = -10.0
 show_on_key = "bate"
 
 [node name="BearBox" parent="Interactuables" instance=ExtResource( 3 )]
 position = Vector2( 1044, 309 )
 starts_hidden = true
 texture = ExtResource( 20 )
-interact_area_shape = SubResource( 25 )
+interact_area_shape = SubResource( 34 )
 tooltip = "bearbox_tooltip"
 dialogue = PoolStringArray( "bearbox" )
 inspect_textures = [ ExtResource( 10 ), ExtResource( 11 ) ]
+interaction_audio = ExtResource( 40 )
 show_on_key = "unlocked_closet"
 
 [node name="NightstandLocked" parent="Interactuables" instance=ExtResource( 3 )]
 position = Vector2( 1306, 874 )
 texture = ExtResource( 22 )
-interact_area_shape = SubResource( 25 )
+interact_area_shape = SubResource( 35 )
 tooltip = "nightstand_tooltip"
 dialogue = PoolStringArray( "nightstand_locked" )
+interaction_audio = ExtResource( 36 )
+interaction_audio_db = -10.0
 show_on_key = "hanger"
 
 [node name="NightstandUnused" parent="Interactuables" instance=ExtResource( 3 )]
 position = Vector2( 1306, 874 )
 starts_hidden = true
 texture = ExtResource( 22 )
-interact_area_shape = SubResource( 25 )
+interact_area_shape = SubResource( 36 )
 tooltip = "nightstand_tooltip"
 dialogue = PoolStringArray( "nightstand_unused1", "nightstand_unused2" )
 inspect_textures = [ ExtResource( 13 ), ExtResource( 12 ) ]
+interaction_audio = ExtResource( 39 )
+interaction_audio_db = -10.0
 progress_key_unlock = "nightstand_opened"
 hide_on_key = "nightstand_opened"
 show_on_key = "hanger"
@@ -308,11 +399,96 @@ show_on_key = "hanger"
 position = Vector2( 1306, 874 )
 starts_hidden = true
 texture = ExtResource( 22 )
-interact_area_shape = SubResource( 25 )
+interact_area_shape = SubResource( 37 )
 tooltip = "nightstand_tooltip"
 dialogue = PoolStringArray( "nightstand_used" )
 inspect_textures = [ ExtResource( 13 ), ExtResource( 12 ) ]
 show_on_key = "nightstand_opened"
+
+[node name="ModelGeneric" parent="Interactuables" instance=ExtResource( 3 )]
+position = Vector2( 832, 217 )
+texture = ExtResource( 24 )
+interact_area_shape = SubResource( 49 )
+tooltip = "modelgeneric_tooltip"
+dialogue = PoolStringArray( "modelgeneric_old" )
+interaction_audio = ExtResource( 25 )
+
+[node name="PaintWall" parent="Interactuables" instance=ExtResource( 3 )]
+position = Vector2( 406, 315 )
+texture = ExtResource( 26 )
+interact_area_shape = SubResource( 39 )
+tooltip = "paintwallgeneric_tooltip"
+dialogue = PoolStringArray( "paintwallgeneric_old" )
+
+[node name="PictureWall" parent="Interactuables" instance=ExtResource( 3 )]
+position = Vector2( 1084, 396 )
+texture = ExtResource( 31 )
+interact_area_shape = SubResource( 40 )
+tooltip = "pictureswallgeneric_tooltip"
+dialogue = PoolStringArray( "pictureswallgeneric_old" )
+
+[node name="BooksBottom" parent="Interactuables" instance=ExtResource( 3 )]
+position = Vector2( 555, 931 )
+texture = ExtResource( 27 )
+interact_area_shape = SubResource( 41 )
+tooltip = "booksbottomgeneric_tooltip"
+dialogue = PoolStringArray( "booksbottomgeneric_old" )
+interaction_audio = ExtResource( 35 )
+interaction_audio_db = -10.0
+
+[node name="BooksTopLeft" parent="Interactuables" instance=ExtResource( 3 )]
+position = Vector2( 473, 152 )
+texture = ExtResource( 28 )
+interact_area_shape = SubResource( 42 )
+tooltip = "bookstopleftgeneric_tooltip"
+dialogue = PoolStringArray( "bookstopleftgeneric_old" )
+interaction_audio = ExtResource( 35 )
+interaction_audio_db = -10.0
+
+[node name="BooksTopMiddle" parent="Interactuables" instance=ExtResource( 3 )]
+position = Vector2( 591, 151 )
+texture = ExtResource( 29 )
+interact_area_shape = SubResource( 43 )
+tooltip = "bookstopmiddlegeneric_tooltip"
+dialogue = PoolStringArray( "bookstopmiddlegeneric_old" )
+interaction_audio = ExtResource( 35 )
+interaction_audio_db = -10.0
+
+[node name="ExitDoor" parent="Interactuables" instance=ExtResource( 3 )]
+position = Vector2( 409, 462 )
+texture = ExtResource( 30 )
+interact_area_shape = SubResource( 44 )
+tooltip = "exitdoor_tooltip"
+dialogue = PoolStringArray( "exitdoor_old" )
+interaction_audio = ExtResource( 36 )
+interaction_audio_db = -10.0
+
+[node name="BooksToolBox" parent="Interactuables" instance=ExtResource( 3 )]
+position = Vector2( 972, 217 )
+texture = ExtResource( 33 )
+interact_area_shape = SubResource( 45 )
+tooltip = "bookstoolbox_tooltip"
+dialogue = PoolStringArray( "bookstoolbox_old" )
+interaction_audio = ExtResource( 35 )
+interaction_audio_db = -10.0
+
+[node name="OldPlant1" parent="Interactuables" instance=ExtResource( 3 )]
+position = Vector2( 1450, 431 )
+texture = ExtResource( 34 )
+interact_area_shape = SubResource( 46 )
+tooltip = "oldplant1_tooltip"
+dialogue = PoolStringArray( "oldplant1_old" )
+interaction_audio = ExtResource( 32 )
+interaction_audio_db = 5.0
+
+[node name="OldPlant2" parent="Interactuables" instance=ExtResource( 3 )]
+position = Vector2( 1436, 854 )
+texture = ExtResource( 37 )
+interact_area_shape = SubResource( 47 )
+tooltip = "oldplant1_tooltip"
+dialogue = PoolStringArray( "oldplant1_old" )
+interaction_audio = ExtResource( 32 )
+interaction_audio_db = 5.0
 
 [node name="Shadow" parent="." instance=ExtResource( 23 )]
 spawn_points_path = NodePath("../ShadowSpawns")
