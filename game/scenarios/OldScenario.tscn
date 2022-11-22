@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=2]
+[gd_scene load_steps=81 format=2]
 
 [ext_resource path="res://game/scenarios/OldScenario.gd" type="Script" id=1]
 [ext_resource path="res://assets/textures/maps/Viejo/topMap.png" type="Texture" id=2]
@@ -40,6 +40,7 @@
 [ext_resource path="res://assets/sounds/sfx/Agarrar.wav" type="AudioStream" id=38]
 [ext_resource path="res://assets/sounds/sfx/AbrirCosas_Cerrar/AbrirCajon.wav" type="AudioStream" id=39]
 [ext_resource path="res://assets/sounds/sfx/AbrirCosas_Cerrar/AbrirOsito.ogg" type="AudioStream" id=40]
+[ext_resource path="res://assets/sounds/sfx/InteractuablesPrincipales/Llaves.mp3" type="AudioStream" id=41]
 
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 13, 420 )
@@ -336,6 +337,8 @@ texture = ExtResource( 19 )
 interact_area_shape = SubResource( 32 )
 tooltip = "reliquary_tooltip"
 dialogue = PoolStringArray( "reliquary_unused" )
+interaction_audio = ExtResource( 41 )
+interaction_audio_db = 10.0
 progress_key_unlock = "closet_key"
 hide_on_key = "closet_key"
 show_on_key = "bate"
@@ -390,7 +393,7 @@ tooltip = "nightstand_tooltip"
 dialogue = PoolStringArray( "nightstand_unused1", "nightstand_unused2" )
 inspect_textures = [ ExtResource( 13 ), ExtResource( 12 ) ]
 interaction_audio = ExtResource( 39 )
-interaction_audio_db = -10.0
+interaction_audio_db = 10.0
 progress_key_unlock = "nightstand_opened"
 hide_on_key = "nightstand_opened"
 show_on_key = "hanger"
