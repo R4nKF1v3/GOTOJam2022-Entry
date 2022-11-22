@@ -1,4 +1,4 @@
-[gd_scene load_steps=82 format=2]
+[gd_scene load_steps=80 format=2]
 
 [ext_resource path="res://game/scenarios/YoungScenario.gd" type="Script" id=1]
 [ext_resource path="res://assets/textures/maps/Joven/baseMap.png" type="Texture" id=2]
@@ -24,8 +24,6 @@
 [ext_resource path="res://assets/sounds/sfx/InteractuablesPrincipales/AgarrarMaqueta.mp3" type="AudioStream" id=22]
 [ext_resource path="res://assets/sounds/sfx/AbrirCosas_Cerrar/PuertaCerrada.wav" type="AudioStream" id=23]
 [ext_resource path="res://assets/sounds/sfx/AbrirCosas_Cerrar/AbrirPuerta.wav" type="AudioStream" id=24]
-[ext_resource path="res://assets/shaders/ElementLightOnly.tres" type="Material" id=25]
-[ext_resource path="res://game/interactuables/InteractuableElement.gd" type="Script" id=26]
 [ext_resource path="res://assets/textures/maps/InteractuablesComun/modelExtra.png" type="Texture" id=27]
 [ext_resource path="res://assets/textures/maps/InteractuablesComun/paintWall.png" type="Texture" id=28]
 [ext_resource path="res://assets/textures/maps/InteractuablesComun/booksBottom.png" type="Texture" id=29]
@@ -175,14 +173,14 @@ scale_random = 1.0
 color = Color( 1, 0.945098, 0, 1 )
 
 [sub_resource type="NavigationPolygon" id=4]
-vertices = PoolVector2Array( 392, 256, 848, 256, 848, 368, 392, 864, 896, 368, 896, 424, 864, 584, 712, 816, 1384, 424, 1384, 872, 1304, 872, 1304, 832, 1136, 832, 1136, 584, 864, 816, 712, 864 )
+vertices = PoolVector2Array( 392, 256, 848, 256, 848, 368, 392, 864, 893, 368, 893, 448, 864, 584, 712, 816, 1381, 448, 1381, 872, 1304, 872, 1304, 832, 1136, 832, 1136, 584, 864, 816, 712, 864 )
 polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 3, 2, 4, 5, 6, 7 ), PoolIntArray( 8, 9, 10, 11 ), PoolIntArray( 11, 12, 13, 8 ), PoolIntArray( 5, 8, 13, 6 ), PoolIntArray( 6, 14, 7 ), PoolIntArray( 3, 7, 15 ) ]
-outlines = [ PoolVector2Array( 392, 256, 392, 864, 712, 864, 712, 816, 864, 816, 864, 584, 1136, 584, 1136, 832, 1304, 832, 1304, 872, 1384, 872, 1384, 424, 896, 424, 896, 368, 848, 368, 848, 256 ) ]
+outlines = [ PoolVector2Array( 392, 256, 392, 864, 712, 864, 712, 816, 864, 816, 864, 584, 1136, 584, 1136, 832, 1304, 832, 1304, 872, 1381, 872, 1381, 448, 893, 448, 893, 368, 848, 368, 848, 256 ) ]
 
 [sub_resource type="NavigationPolygon" id=24]
-vertices = PoolVector2Array( 1373, 272, 1373, 320, 1309, 320, 1005, 272, 1309, 424, 1293, 424, 1293, 320, 1005, 320 )
+vertices = PoolVector2Array( 1373, 272, 1373, 320, 1309, 320, 1005, 272, 1309, 448, 1293, 448, 1293, 320, 1005, 320 )
 polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 2, 4, 5, 6 ), PoolIntArray( 3, 2, 6 ), PoolIntArray( 3, 6, 7 ) ]
-outlines = [ PoolVector2Array( 1373, 272, 1005, 272, 1005, 320, 1293, 320, 1293, 424, 1309, 424, 1309, 320, 1373, 320 ) ]
+outlines = [ PoolVector2Array( 1373, 272, 1005, 272, 1005, 320, 1293, 320, 1293, 448, 1309, 448, 1309, 320, 1373, 320 ) ]
 
 [node name="YoungScenario" type="Node2D" groups=["progress_listeners"]]
 script = ExtResource( 1 )
@@ -457,112 +455,76 @@ interact_area_shape = SubResource( 48 )
 tooltip = "pc_tooltip"
 dialogue = PoolStringArray( "pc_young" )
 
-[node name="OldPlant2" type="Node2D" parent="Interactuables" groups=["progress_listeners"] instance=ExtResource( 4 )]
-light_mask = 2
-material = ExtResource( 25 )
+[node name="OldPlant2" parent="Interactuables" instance=ExtResource( 4 )]
 position = Vector2( 1436, 854 )
-script = ExtResource( 26 )
 texture = ExtResource( 38 )
-outline_color = Color( 1, 0.54902, 0.25098, 1 )
 interact_area_shape = SubResource( 47 )
 tooltip = "youngplant2_tooltip"
 dialogue = PoolStringArray( "youngplant2_old" )
 interaction_audio = ExtResource( 34 )
 interaction_audio_db = 5.0
 
-[node name="ModelGeneric" type="Node2D" parent="Interactuables" groups=["progress_listeners"] instance=ExtResource( 4 )]
-light_mask = 2
-material = ExtResource( 25 )
+[node name="ModelGeneric" parent="Interactuables" instance=ExtResource( 4 )]
 position = Vector2( 832, 217 )
-script = ExtResource( 26 )
 texture = ExtResource( 27 )
-outline_color = Color( 1, 0.54902, 0.25098, 1 )
 interact_area_shape = SubResource( 49 )
 tooltip = "modelgeneric_tooltip"
 dialogue = PoolStringArray( "modelgeneric_young" )
 interaction_audio = ExtResource( 22 )
 
-[node name="PaintWall" type="Node2D" parent="Interactuables" groups=["progress_listeners"] instance=ExtResource( 4 )]
-light_mask = 2
-material = ExtResource( 25 )
+[node name="PaintWall" parent="Interactuables" instance=ExtResource( 4 )]
 position = Vector2( 406, 315 )
-script = ExtResource( 26 )
 texture = ExtResource( 28 )
-outline_color = Color( 1, 0.54902, 0.25098, 1 )
 interact_area_shape = SubResource( 39 )
 tooltip = "paintwallgeneric_tooltip"
 dialogue = PoolStringArray( "paintwallgeneric_young" )
 
-[node name="PictureWall" type="Node2D" parent="Interactuables" groups=["progress_listeners"] instance=ExtResource( 4 )]
-light_mask = 2
-material = ExtResource( 25 )
+[node name="PictureWall" parent="Interactuables" instance=ExtResource( 4 )]
 position = Vector2( 1084, 396 )
-script = ExtResource( 26 )
 texture = ExtResource( 33 )
-outline_color = Color( 1, 0.54902, 0.25098, 1 )
 interact_area_shape = SubResource( 40 )
 tooltip = "pictureswallgeneric_tooltip"
 dialogue = PoolStringArray( "pictureswallgeneric_young" )
 
-[node name="BooksBottom" type="Node2D" parent="Interactuables" groups=["progress_listeners"] instance=ExtResource( 4 )]
-light_mask = 2
-material = ExtResource( 25 )
+[node name="BooksBottom" parent="Interactuables" instance=ExtResource( 4 )]
 position = Vector2( 555, 931 )
-script = ExtResource( 26 )
 texture = ExtResource( 29 )
-outline_color = Color( 1, 0.54902, 0.25098, 1 )
 interact_area_shape = SubResource( 41 )
 tooltip = "booksbottomgeneric_tooltip"
 dialogue = PoolStringArray( "booksbottomgeneric_young" )
 interaction_audio = ExtResource( 35 )
 interaction_audio_db = -10.0
 
-[node name="BooksTopLeft" type="Node2D" parent="Interactuables" groups=["progress_listeners"] instance=ExtResource( 4 )]
-light_mask = 2
-material = ExtResource( 25 )
+[node name="BooksTopLeft" parent="Interactuables" instance=ExtResource( 4 )]
 position = Vector2( 473, 152 )
-script = ExtResource( 26 )
 texture = ExtResource( 30 )
-outline_color = Color( 1, 0.54902, 0.25098, 1 )
 interact_area_shape = SubResource( 42 )
 tooltip = "bookstopleftgeneric_tooltip"
 dialogue = PoolStringArray( "bookstopleftgeneric_young" )
 interaction_audio = ExtResource( 35 )
 interaction_audio_db = -10.0
 
-[node name="BooksTopMiddle" type="Node2D" parent="Interactuables" groups=["progress_listeners"] instance=ExtResource( 4 )]
-light_mask = 2
-material = ExtResource( 25 )
+[node name="BooksTopMiddle" parent="Interactuables" instance=ExtResource( 4 )]
 position = Vector2( 591, 151 )
-script = ExtResource( 26 )
 texture = ExtResource( 31 )
-outline_color = Color( 1, 0.54902, 0.25098, 1 )
 interact_area_shape = SubResource( 43 )
 tooltip = "bookstopmiddlegeneric_tooltip"
 dialogue = PoolStringArray( "bookstopmiddlegeneric_young" )
 interaction_audio = ExtResource( 35 )
 interaction_audio_db = -10.0
 
-[node name="ExitDoor" type="Node2D" parent="Interactuables" groups=["progress_listeners"] instance=ExtResource( 4 )]
-light_mask = 2
-material = ExtResource( 25 )
+[node name="ExitDoor" parent="Interactuables" instance=ExtResource( 4 )]
 position = Vector2( 409, 462 )
-script = ExtResource( 26 )
 texture = ExtResource( 32 )
-outline_color = Color( 1, 0.54902, 0.25098, 1 )
 interact_area_shape = SubResource( 44 )
 tooltip = "exitdoor_tooltip"
 dialogue = PoolStringArray( "exitdoor_young" )
 interaction_audio = ExtResource( 23 )
 interaction_audio_db = -10.0
 
-[node name="OldPlant1" type="Node2D" parent="Interactuables" groups=["progress_listeners"] instance=ExtResource( 4 )]
-light_mask = 2
-material = ExtResource( 25 )
+[node name="OldPlant1" parent="Interactuables" instance=ExtResource( 4 )]
 position = Vector2( 1450, 431 )
-script = ExtResource( 26 )
 texture = ExtResource( 37 )
-outline_color = Color( 1, 0.54902, 0.25098, 1 )
 interact_area_shape = SubResource( 46 )
 tooltip = "youngplant1_tooltip"
 dialogue = PoolStringArray( "youngplant1_old" )
