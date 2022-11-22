@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://game/scenarios/OldScenario.gd" type="Script" id=1]
 [ext_resource path="res://assets/textures/maps/Viejo/topMap.png" type="Texture" id=2]
@@ -22,6 +22,7 @@
 [ext_resource path="res://assets/textures/maps/Viejo/Interactuables/bearBox.png" type="Texture" id=20]
 [ext_resource path="res://assets/textures/maps/Viejo/Interactuables/cardTableLeft.png" type="Texture" id=21]
 [ext_resource path="res://assets/textures/maps/Viejo/Interactuables/cardTableRight.png" type="Texture" id=22]
+[ext_resource path="res://game/Shadow.tscn" type="PackedScene" id=23]
 
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 13, 420 )
@@ -99,7 +100,6 @@ z_as_relative = false
 texture = ExtResource( 2 )
 
 [node name="Walls" type="Node2D" parent="."]
-visible = false
 z_index = 1
 z_as_relative = false
 
@@ -313,6 +313,20 @@ tooltip = "nightstand_tooltip"
 dialogue = PoolStringArray( "nightstand_used" )
 inspect_textures = [ ExtResource( 13 ), ExtResource( 12 ) ]
 show_on_key = "nightstand_opened"
+
+[node name="Shadow" parent="." instance=ExtResource( 23 )]
+spawn_points_path = NodePath("../ShadowSpawns")
+
+[node name="ShadowSpawns" type="Node2D" parent="."]
+
+[node name="Spawn1" type="Position2D" parent="ShadowSpawns"]
+position = Vector2( 563, 323 )
+
+[node name="Spawn2" type="Position2D" parent="ShadowSpawns"]
+position = Vector2( 670, 750 )
+
+[node name="Spawn3" type="Position2D" parent="ShadowSpawns"]
+position = Vector2( 1236, 493 )
 
 [node name="Lights" type="Node2D" parent="."]
 z_index = 2

@@ -43,6 +43,7 @@ func _on_number_selected(number:int) -> void:
 
 func notify_finish() -> void:
 	emit_signal("strongbox_opened")
+	get_tree().call_group("progress_listeners", "notify_key_progress_unlocked", "strongbox_opened")
 	hide()
 
 

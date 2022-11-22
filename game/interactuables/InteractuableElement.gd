@@ -51,6 +51,7 @@ func _ready() -> void:
 		interact_area.connect("mouse_exited", self, "_on_InteractArea_mouse_exited")
 		outline_color.a = 0
 		body.use_parent_material = true
+		body.material = body.material.duplicate()
 		visible = !starts_hidden
 		if interaction_audio != null:
 			interact_sfx._audio_references = [interaction_audio]

@@ -27,7 +27,12 @@ var callback_point:Vector2
 var keys_unlocked:Array = []
 
 
+func _ready() -> void:
+	setup()
+
+
 func setup() -> void:
+	randomize()
 	old_scenario.setup()
 	young_scenario.setup()
 	_change_current_scenario(old_scenario)
@@ -92,6 +97,9 @@ func notify_key_progress_unlocked(key_progress:String) -> void:
 func _on_StrongboxInspector_strongbox_opened() -> void:
 	get_tree().call_group("dialogue", "show_dialogue", final_dialogue)
 	in_out_anim.play("outro")
+	vignette_tween.interpolate_method(self, "_change_vignette", 0.4, 16.0, 0.5)
+	vignette_tween.interpolate_method(self, "_change_vignette", 16.0, 0.4, 0.1, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT, 0.5)
+	vignette_tween.start()
 
 
 func finish() -> void:

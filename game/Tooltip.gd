@@ -15,8 +15,8 @@ func _process(delta: float) -> void:
 
 func change_tooltip(new_tooltip:String) -> void:
 	label.text = new_tooltip
-	if modulate.a == 0.0:
-		fade_tween.remove_all()
+	fade_tween.remove_all()
+	if modulate.a < 1.0:
 		_fade_enter()
 
 
