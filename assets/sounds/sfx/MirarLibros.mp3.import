@@ -11,5 +11,5 @@ dest_files=[ "res://.import/MirarLibros.mp3-36f11df34ed469377dcb3ee4db92c47b.mp3
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

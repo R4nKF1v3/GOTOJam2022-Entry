@@ -11,5 +11,5 @@ dest_files=[ "res://.import/AgarrarMaqueta.mp3-5fc6729b562bed29dc42f1fcbaa7fe98.
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0
